@@ -16,8 +16,7 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
     private var isCallEnded:Bool = false
     private var contents:String = ""
     private var previewStackCount:Int = 0
-    private var previewElementName:String = ""
-    // parse結果取得用
+    /// parse結果取得用
     var kml:Kml?
     
     init(Url:NSURL) {
@@ -180,22 +179,19 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
             
             // 複数あるので特殊処理
         case Scale.elementName.lowercaseString:
-            let models = stack.items.filter({ $0.elementName == Model.elementName})
-            if models.isEmpty {
+            if stack.items.contains({ $0 is Model}) {
+                return Model.Scale(attributes: attributes)            }
+            else{
                 // case ScaleDouble.elementName.lowercaseString:
                 return Scale()
             }
-            else{
-                return Model.Scale(attributes: attributes)
-            }
         case IconStyleType.Icon.elementName.lowercaseString:
-            let iconStyles = stack.items.filter({ $0.elementName == IconStyle.elementName})
-            if iconStyles.isEmpty {
+            if stack.items.contains({ $0 is IconStyle}){
+                return IconStyleType.Icon()
+            }
+            else{
                 // case Icon.elementName.lowercaseString:
                 return Icon(attributes: attributes)
-            }
-            else{
-                return IconStyleType.Icon()
             }
         default:                                                return nil
         }
@@ -205,7 +201,6 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
     
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         let element = createXMLElement(stack,elementName: elementName,attributes: attributeDict)
-        previewElementName = elementName
         stack.push(element!)
         debugPrint("OnStart pushd=\(element)")
         isCallEnded = false
