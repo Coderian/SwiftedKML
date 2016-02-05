@@ -180,7 +180,8 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
             // 複数あるので特殊処理
         case Scale.elementName.lowercaseString:
             if stack.items.contains({ $0 is Model}) {
-                return Model.Scale(attributes: attributes)            }
+                return Model.Scale(attributes: attributes)
+            }
             else{
                 // case ScaleDouble.elementName.lowercaseString:
                 return Scale()
