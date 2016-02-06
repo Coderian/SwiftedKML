@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 /// KML Coordinates
 ///
@@ -49,14 +50,33 @@ public class Coordinates: HasXMLElementSimpleValue {
     }
     public var childs:[HasXMLElementName] = []
     var rawValue:String = ""
-    public var value:[String] = []
+    /// longitude,latitude,altitude
+    public var value:[(longitude:String, latitude:String, altitude:String)] = []
     public func makeRelation(contents : String, parent: HasXMLElementName) -> HasXMLElementName {
         self.rawValue = contents
         let replacestring = contents.stringByReplacingOccurrencesOfString("\n", withString: ",")
         let trimedstring = replacestring.stringByReplacingOccurrencesOfString(" ", withString: "")
 //        let trimedstring = a.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        value = trimedstring.characters.split{$0 == ","}.map(String.init)
+        let values = trimedstring.characters.split{$0 == ","}.map(String.init)
+        for l in 0..<values.count/3 {
+            value.append((longitude:values[l*3+0], latitude:values[l*3+1], altitude:values[l*3+2]))
+        }
         self.parent = parent
         return parent
+    }
+}
+
+extension Coordinates {
+    var locationCoordinates:[CLLocationCoordinate2D] {
+        var ret:[CLLocationCoordinate2D]=[]
+        for v in value {
+            let longitude:Double = Double(v.longitude)!
+            let latitude:Double = Double(v.latitude)!
+            let coord = CLLocationCoordinate2DMake(latitude, longitude)
+            if CLLocationCoordinate2DIsValid(coord) {
+                ret.append(coord)
+            }
+        }
+        return ret
     }
 }
