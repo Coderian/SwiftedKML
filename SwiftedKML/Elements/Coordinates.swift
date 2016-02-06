@@ -58,8 +58,14 @@ public class Coordinates: HasXMLElementSimpleValue {
         let trimedstring = replacestring.stringByReplacingOccurrencesOfString(" ", withString: "")
 //        let trimedstring = a.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let values = trimedstring.characters.split{$0 == ","}.map(String.init)
-        for l in 0..<values.count/3 {
-            value.append((longitude:values[l*3+0], latitude:values[l*3+1], altitude:values[l*3+2]))
+        let column = 3 // TODO: 2 or 3 に可変する必要がある スペースまでのカンマの数
+        for row in 0..<values.count/column {
+            if column == 3 {
+                value.append((longitude:values[row*column+0], latitude:values[row*column+1], altitude:values[row*column+2]))
+            }
+            else {
+                value.append((longitude:values[row*column+0], latitude:values[row*column+1], altitude:""))
+            }
         }
         self.parent = parent
         return parent
