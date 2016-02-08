@@ -50,21 +50,21 @@ public class Coordinates: HasXMLElementSimpleValue {
     }
     public var childs:[HasXMLElementName] = []
     var rawValue:String = ""
-    /// longitude,latitude,altitude
+    /// longitude,latitude[,altitude]
     public var value:[(longitude:String, latitude:String, altitude:String)] = []
     public func makeRelation(contents : String, parent: HasXMLElementName) -> HasXMLElementName {
+        value.removeAll()
         self.rawValue = contents
-        let replacestring = contents.stringByReplacingOccurrencesOfString("\n", withString: ",")
-        let trimedstring = replacestring.stringByReplacingOccurrencesOfString(" ", withString: "")
-//        let trimedstring = a.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        let values = trimedstring.characters.split{$0 == ","}.map(String.init)
-        let column = 3 // TODO: 2 or 3 に可変する必要がある スペースまでのカンマの数
-        for row in 0..<values.count/column {
-            if column == 3 {
-                value.append((longitude:values[row*column+0], latitude:values[row*column+1], altitude:values[row*column+2]))
+        let trimedString = contents.componentsSeparatedByString("\n").map{$0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())}
+        let separetedString = trimedString.joinWithSeparator(" ").characters.split(" ").map(String.init)
+        for v in separetedString {
+            let colum = v.componentsSeparatedByString(",")
+            // 2 or 3 に可変する必要がある
+            if colum.count == 3 {
+                value.append((longitude:colum[0], latitude:colum[1], altitude:colum[2]))
             }
             else {
-                value.append((longitude:values[row*column+0], latitude:values[row*column+1], altitude:""))
+                value.append((longitude:colum[0], latitude:colum[1], altitude:""))
             }
         }
         self.parent = parent
