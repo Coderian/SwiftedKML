@@ -290,6 +290,36 @@ class SwiftedKMLTests: XCTestCase {
         
     }
     
+    func testWhen() {
+        let parent = TimeStamp(attributes: [:])
+        let targetWhen:When = When()
+        let contentsWhen = "2007-01-14T21:05:02Z"
+        targetWhen.makeRelation(contentsWhen, parent: parent)
+        let dateformatter = NSDateFormatter()
+        dateformatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+        dateformatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        dateformatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        XCTAssertEqual(contentsWhen, dateformatter.stringFromDate(targetWhen.value))
+        
+    }
+    func testBeginEnd(){
+        let parent = TimeSpan(attributes: [:])
+        let targetBegin:Begin = Begin()
+        let contentsBegin = "2004-03"
+        targetBegin.makeRelation(contentsBegin, parent: parent)
+        
+        let dateformatter = NSDateFormatter()
+        dateformatter.dateFormat = "yyyy'-'MM'"
+        dateformatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        dateformatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        XCTAssertEqual(contentsBegin, dateformatter.stringFromDate(targetBegin.value))
+        
+        let targetEnd:End = End()
+        let contentsEnd = "2004-04"
+        targetEnd.makeRelation(contentsEnd, parent: parent)
+        XCTAssertEqual(contentsEnd, dateformatter.stringFromDate(targetEnd.value))
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {

@@ -42,12 +42,26 @@ public class End: HasXMLElementSimpleValue {
     }
     public var childs:[HasXMLElementName] = []
     public var value:NSDate = NSDate()
-    public func makeRelation(parent: HasXMLElementName) -> HasXMLElementName {
+    public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
+        var datefmt = ""
+        switch contents.characters.count {
+        case 4:
+            datefmt="yyyy"
+        case 7:
+            datefmt="yyyy'-'MM"
+        case 10:
+            datefmt="yyyy'-'MM'-'dd"
+        case 20:
+            datefmt="yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+        default:
+            datefmt="yyyy'-'MM'-'dd'T'HH':'mm':'ss'XXXXXX'"
+        }
+        let dateFormater = NSDateFormatter()
+        dateFormater.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        dateFormater.dateFormat = datefmt
+        dateFormater.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        self.value = dateFormater.dateFromString(contents)!
         self.parent = parent
         return parent
-    }
-    public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
-        self.value = NSDate()
-        return makeRelation(parent)
     }
 }

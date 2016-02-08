@@ -42,8 +42,25 @@ public class When: HasXMLElementSimpleValue {
     }
     public var childs:[HasXMLElementName] = []
     public var value: NSDate = NSDate()
+    public var dateFormat:String = ""
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
-        self.value = NSDate()
+        switch contents.characters.count {
+        case 4:
+            dateFormat="yyyy"
+        case 7:
+            dateFormat="yyyy'-'MM"
+        case 10:
+            dateFormat="yyyy'-'MM'-'dd"
+        case 20:
+            dateFormat="yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+        default:
+            dateFormat="yyyy'-'MM'-'dd'T'HH':'mm':'ss'XXXXXX'"
+        }
+        let dateFormater = NSDateFormatter()
+        dateFormater.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        dateFormater.dateFormat = dateFormat
+        dateFormater.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        self.value = dateFormater.dateFromString(contents)!
         self.parent = parent
         return parent
     }
