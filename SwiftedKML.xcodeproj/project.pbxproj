@@ -10,7 +10,6 @@
 		724A43531C634F3900014AD6 /* SwiftedKML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724A43481C634F3900014AD6 /* SwiftedKML.framework */; };
 		724A43581C634F3900014AD6 /* SwiftedKMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A43571C634F3900014AD6 /* SwiftedKMLTests.swift */; };
 		724A43651C6350F200014AD6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 724A43631C6350F200014AD6 /* LICENSE */; };
-		724A43661C6350F200014AD6 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 724A43641C6350F200014AD6 /* README.md */; };
 		724A436A1C63524500014AD6 /* KMLNSXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A43671C63524500014AD6 /* KMLNSXMLParser.swift */; };
 		724A436B1C63524500014AD6 /* XMLElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A43681C63524500014AD6 /* XMLElement.swift */; };
 		724A436C1C63524500014AD6 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A43691C63524500014AD6 /* Stack.swift */; };
@@ -907,7 +906,6 @@
 				724A44471C63525400014AD6 /* LineString.swift in Sources */,
 				724A436B1C63524500014AD6 /* XMLElement.swift in Sources */,
 				724A44721C63525400014AD6 /* Range.swift in Sources */,
-				724A43661C6350F200014AD6 /* README.md in Sources */,
 				724A447B1C63525400014AD6 /* RotationXY.swift in Sources */,
 				724A44591C63525400014AD6 /* MaxWidth.swift in Sources */,
 				724A446B1C63525400014AD6 /* Pair.swift in Sources */,
