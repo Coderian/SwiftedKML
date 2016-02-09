@@ -41,6 +41,7 @@ public class SourceHref: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: String = String()// TODO: #globalIconなどの自己参照があるので要検討
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
         self.value = contents

@@ -41,6 +41,7 @@ public class SimpleData : HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value : SimpleDataType
     public init(attributes:[String:String]){
         self.value = SimpleDataType(attributes: attributes)

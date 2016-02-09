@@ -42,6 +42,7 @@ public class BottomFov:HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: Double = 0.0 { // angle90Type
         willSet {
             if (newValue < -90 && 90 < newValue ){

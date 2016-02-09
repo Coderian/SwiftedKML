@@ -41,6 +41,7 @@ public class Create : HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value : CreateType = CreateType()
 }
 /// KML CreateType

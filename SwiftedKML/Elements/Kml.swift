@@ -25,7 +25,12 @@ public class Kml : HasXMLElementValue , CustomStringConvertible{
     public static var elementName: String = "kml"
     public var parent:HasXMLElementName?
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value : KmlType = KmlType()
+    init(){}
+    init(attributes:[String:String]){
+        self.attributes = attributes
+    }
 }
 /// KML KmlType
 ///

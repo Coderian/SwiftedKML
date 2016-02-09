@@ -44,6 +44,7 @@ public class Description: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value:String = ""
     init(){}
     init(value : String){

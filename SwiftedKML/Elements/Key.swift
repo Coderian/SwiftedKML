@@ -54,6 +54,7 @@ public class Key: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: StyleStateEnumType = .NORMAL
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
         self.value = StyleStateEnumType(rawValue: contents.uppercaseString)!

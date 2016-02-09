@@ -24,6 +24,11 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
         super.init()
         parser.delegate = self
     }
+
+    // TODO: validate
+    func validate() -> Bool {
+        return true
+    }
     
     func parse() -> Kml?{
         parser.parse()
@@ -138,7 +143,7 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
         case IconStyle.elementName.lowercaseString:             return IconStyle(attributes: attributes)
         case ImagePyramid.elementName.lowercaseString:          return ImagePyramid(attributes: attributes)
         case ItemIcon.elementName.lowercaseString:              return ItemIcon(attributes: attributes)
-        case Kml.elementName.lowercaseString:                   return Kml()
+        case Kml.elementName.lowercaseString:                   return Kml(attributes: attributes)
         case LabelStyle.elementName.lowercaseString:            return LabelStyle(attributes: attributes)
         case LatLonAltBox.elementName.lowercaseString:          return LatLonAltBox(attributes: attributes)
         case LatLonBox.elementName.lowercaseString:             return LatLonBox(attributes: attributes)

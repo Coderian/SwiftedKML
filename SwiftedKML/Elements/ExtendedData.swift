@@ -41,6 +41,7 @@ public class ExtendedData : HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value : ExtendedDataType = ExtendedDataType()
 }
 /// KML ExtendedDataType

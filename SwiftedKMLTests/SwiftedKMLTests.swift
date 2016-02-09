@@ -54,6 +54,10 @@ class SwiftedKMLTests: XCTestCase {
             }
         }
         
+        let styles = kml?.select("id", attributeValue: "downArrowIcon")
+        XCTAssert(styles?.count == 1)
+        print(styles)
+        
     }
     
     func test_mackynormal() {

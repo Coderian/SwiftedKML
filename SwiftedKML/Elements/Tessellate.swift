@@ -43,6 +43,7 @@ public class Tessellate: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: Bool = false // 0
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
         self.value = contents == "1"

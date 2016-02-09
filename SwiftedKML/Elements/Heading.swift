@@ -42,6 +42,7 @@ public class Heading: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value:Double = 0.0 {
         willSet{
             if (newValue < -360 && 360 < newValue ) {

@@ -52,6 +52,7 @@ public protocol HasXMLElementName {
     }
     var root:HasXMLElementName { get }
     var childs:[HasXMLElementName] { get set }
+    var attributes:[String:String] { get }
 }
 
 
@@ -111,6 +112,13 @@ public extension HasXMLElementName {
         }
     }
 */
+    func select(attributeName:String, attributeValue:String) ->[HasXMLElementName] {
+        var ret:[HasXMLElementName] = []
+        for v in self.allChilds().filter({$0.attributes[attributeName] == attributeValue}){
+            ret.append(v)
+        }
+        return ret
+    }
     func allChilds() -> [HasXMLElementName]{
         var all:[HasXMLElementName] = []
         allChilds( &all, current:self)

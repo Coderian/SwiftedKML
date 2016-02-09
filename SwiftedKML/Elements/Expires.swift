@@ -41,6 +41,7 @@ public class Expires: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value:NSDate = NSDate()
     public func makeRelation(parent: HasXMLElementName) -> HasXMLElementName {
         self.parent = parent

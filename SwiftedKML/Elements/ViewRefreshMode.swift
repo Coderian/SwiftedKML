@@ -56,6 +56,7 @@ public class ViewRefreshMode: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: ViewRefreshModeEnumType = .NEVER
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
         self.value = ViewRefreshModeEnumType(rawValue: contents.uppercaseString)!

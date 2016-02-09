@@ -43,6 +43,14 @@ public class Icon: AbstractObjectGroup, HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String]{
+        var attributes:[String:String] = [:]
+        if let attr = self.value.attribute {
+            attributes[attr.id.dynamicType.attributeName] = attr.id.value
+            attributes[attr.targetId.dynamicType.attributeName] = attr.targetId.value
+        }
+        return attributes
+    }
     public var value : LinkType
     init(attributes:[String:String]){
         self.value = LinkType(attributes: attributes)

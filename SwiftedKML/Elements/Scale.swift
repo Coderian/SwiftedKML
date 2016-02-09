@@ -42,6 +42,7 @@ public class Scale: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: Double = 1.0
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
         self.value = Double(contents)!
@@ -84,6 +85,7 @@ extension Model {
             }
         }
         public var childs:[HasXMLElementName] = []
+        public var attributes:[String:String] = [:]
         public var value : ScaleType
         init(attributes:[String:String]){
             self.value = ScaleType(attributes: attributes)

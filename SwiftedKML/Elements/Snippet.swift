@@ -42,6 +42,7 @@ public class Snippet : HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: SnippetType
     public init(attributes:[String:String]){
         self.value = SnippetType(attributes: attributes)

@@ -44,6 +44,7 @@ public class BgColor:HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value:UIColor = UIColor(hexString: "ffffffff")!
     public init(){}
     public init( valueHexString : String){

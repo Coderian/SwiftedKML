@@ -41,6 +41,7 @@ public class Orientation : AbstractObjectGroup, HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: OrientationType
     init(attributes:[String:String]){
         self.value = OrientationType(attributes: attributes)

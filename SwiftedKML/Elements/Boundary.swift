@@ -42,6 +42,7 @@ public class OuterBoundaryIs : HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value : BoundaryType = BoundaryType()
 }
 /// KML InnerBoundaryIs
@@ -78,6 +79,7 @@ public class InnerBoundaryIs : HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value : BoundaryType = BoundaryType()
 }
 /// KML BoundaryType

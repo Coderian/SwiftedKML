@@ -42,6 +42,7 @@ public class West: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value:Double = -180.0 { // angle180Type
         willSet {
             if(newValue < -180 && 180 < newValue ){

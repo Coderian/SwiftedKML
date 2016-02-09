@@ -41,6 +41,7 @@ public class SimpleField : HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value : SimpleFieldType
     public init(attributes:[String:String]){
         self.value = SimpleFieldType(attributes: attributes)
@@ -110,5 +111,6 @@ public class SimpleFieldExtension : HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value:String=""
 }

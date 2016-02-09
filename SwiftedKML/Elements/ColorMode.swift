@@ -57,6 +57,7 @@ public class ColorMode: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: ColorModeEnumType = .NORMAL
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
         self.value = ColorModeEnumType(rawValue: contents.uppercaseString)!
