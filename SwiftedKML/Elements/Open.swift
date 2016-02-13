@@ -47,6 +47,7 @@ public class Open: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: Bool = false // 0
     init(){}
     init(value :Bool){

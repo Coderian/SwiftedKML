@@ -42,6 +42,7 @@ public class Begin:HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value:NSDate = NSDate()
     public func makeRelation(contents : String, parent: HasXMLElementName) -> HasXMLElementName {
         let dateFormatter = NSDateFormatter.rfc3339Formatter(contents)

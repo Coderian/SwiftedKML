@@ -54,6 +54,10 @@ class SwiftedKMLTests: XCTestCase {
             }
         }
         
+        let styles = kml?.select("id", attributeValue: "downArrowIcon")
+        XCTAssert(styles?.count == 1)
+        print(styles)
+        
     }
     
     func test_mackynormal() {
@@ -320,10 +324,14 @@ class SwiftedKMLTests: XCTestCase {
         XCTAssertEqual(contentsEnd, dateformatter.stringFromDate(targetEnd.value))
     }
     
-    func testPerformanceExample() {
+    func testPerformance_KML_Sample() {
         // This is an example of a performance test case.
         self.measureBlock {
             // Put the code you want to measure the time of here.
+            let kmlXmlUrl = self.bundle.URLForResource("KML_Sample", withExtension: "kml")
+            let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+            let kml = kmlParser.parse()
+            XCTAssertNotNil(kml)
         }
     }
     

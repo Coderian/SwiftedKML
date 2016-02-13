@@ -41,6 +41,7 @@ public class State: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: ItemIconStateType = ItemIconStateType()
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
         // TODO: データ用確認

@@ -41,6 +41,7 @@ public class Change : HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value : ChangeType = ChangeType()
 }
 /// KML ChangeType

@@ -43,6 +43,7 @@ public class Latitude: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: Double = 0.0 {
         willSet {
             if (newValue < -90 && 90 < newValue ){

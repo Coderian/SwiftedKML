@@ -41,6 +41,14 @@ public class RotationXY: HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String]{
+        var attributes:[String:String] = [:]
+        attributes[value.x.dynamicType.attributeName] = String(value.x.value)
+        attributes[value.xunits.dynamicType.attributeName] = value.xunits.value.rawValue.lowercaseString
+        attributes[value.y.dynamicType.attributeName] = String(value.y.value)
+        attributes[value.yunits.dynamicType.attributeName] = value.yunits.value.rawValue.lowercaseString
+        return attributes
+    }
     public var value: Vec2Type = Vec2Type() // attributes
     init(){}
     init(attributes:[String:String]){

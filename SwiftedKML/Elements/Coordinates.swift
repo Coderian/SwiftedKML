@@ -49,6 +49,7 @@ public class Coordinates: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     var rawValue:String = ""
     /// longitude,latitude[,altitude]
     public var value:[(longitude:String, latitude:String, altitude:String)] = []

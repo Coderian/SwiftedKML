@@ -54,6 +54,7 @@ public class DisplayMode: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: DisplayModeEnumType = .DEFAULT
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
         self.value = DisplayModeEnumType(rawValue: contents.uppercaseString)!

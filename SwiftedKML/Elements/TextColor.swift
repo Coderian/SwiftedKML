@@ -42,6 +42,7 @@ public class TextColor: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value : UIColor = UIColor(hexString: "ff000000")!
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
         self.value = UIColor(hexString: contents)!

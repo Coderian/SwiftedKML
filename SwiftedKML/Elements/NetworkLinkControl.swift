@@ -41,6 +41,7 @@ public class NetworkLinkControl : HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value : NetworkLinkControlType = NetworkLinkControlType()
 }
 /// KML NetworkLinkControlType

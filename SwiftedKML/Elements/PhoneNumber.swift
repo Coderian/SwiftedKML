@@ -47,6 +47,7 @@ public class PhoneNumber : HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: String = ""
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
         self.value = contents

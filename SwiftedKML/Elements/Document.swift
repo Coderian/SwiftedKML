@@ -45,6 +45,14 @@ public class Document : AbstractContainerGroup , HasXMLElementValue{
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String]{
+        var attributes:[String:String] = [:]
+        if let attr = self.value.attribute {
+            attributes[attr.id.dynamicType.attributeName] = attr.id.value
+            attributes[attr.targetId.dynamicType.attributeName] = attr.targetId.value
+        }
+        return attributes
+    }
     public var value : DocumentType
     init(){
         self.value = DocumentType()

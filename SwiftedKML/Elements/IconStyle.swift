@@ -41,6 +41,7 @@ public class IconStyle : AbstractColorStyleGroup, HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value : IconStyleType
     init(){
         self.value = IconStyleType()
@@ -104,6 +105,14 @@ public class IconStyleType: AbstractColorStyleType {
             }
         }
         public var childs:[HasXMLElementName] = []
+        public var attributes:[String:String]{
+            var attributes:[String:String] = [:]
+            if let attr = self.value.attribute {
+                attributes[attr.id.dynamicType.attributeName] = attr.id.value
+                attributes[attr.targetId.dynamicType.attributeName] = attr.targetId.value
+            }
+            return attributes
+        }
         public var value: BasicLinkType = BasicLinkType()
     }
     public var icon: Icon?

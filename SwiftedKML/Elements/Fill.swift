@@ -41,6 +41,7 @@ public class Fill: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value:Bool = true // 1
     public func makeRelation(parent: HasXMLElementName) -> HasXMLElementName {
         return parent

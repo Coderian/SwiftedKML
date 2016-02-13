@@ -43,6 +43,7 @@ public class Tilt: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value:Double = 0.0 { // anglepos180Type
         willSet {
             if(newValue < 0 && 180 < newValue ){

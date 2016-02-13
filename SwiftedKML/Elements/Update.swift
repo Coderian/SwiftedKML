@@ -41,6 +41,7 @@ public class Update : HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value : UpdateType = UpdateType()
 }
 /// KML UpdateType

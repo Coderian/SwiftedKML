@@ -55,6 +55,7 @@ public class Shape: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: ShapeEnumType = .RECTANGLE
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
         self.value = ShapeEnumType(rawValue: contents.uppercaseString)!

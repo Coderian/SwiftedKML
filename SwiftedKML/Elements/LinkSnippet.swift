@@ -41,6 +41,7 @@ public class LinkSnippet : HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: SnippetType
     init(attribute:[String:String]){
         self.value = SnippetType(attributes: attribute)

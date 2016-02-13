@@ -41,6 +41,7 @@ public class MaxHeight: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: Int = 0
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
         self.value = Int(contents)!

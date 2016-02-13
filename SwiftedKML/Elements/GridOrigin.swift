@@ -54,6 +54,7 @@ public class GridOrigin: HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: GridOriginEnumType = .LOWERLEFT
     public func makeRelation(parent: HasXMLElementName) -> HasXMLElementName {
         self.parent = parent

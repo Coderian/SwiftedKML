@@ -41,6 +41,7 @@ public class Schema : HasXMLElementValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value : SchemaType
     public init(attributes:[String:String]){
         self.value = SchemaType(attributes: attributes)

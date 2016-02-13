@@ -76,6 +76,7 @@ public class AltitudeMode : AltitudeModeGroup, HasXMLElementSimpleValue {
         }
     }
     public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value: AltitudeModeEnumType = .CLAMPTOGROUND
     public func makeRelation(contents : String, parent: HasXMLElementName) -> HasXMLElementName {
         self.value = AltitudeModeEnumType(rawValue: contents.uppercaseString)!
