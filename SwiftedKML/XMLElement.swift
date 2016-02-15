@@ -30,18 +30,6 @@ public protocol XMLAttributed {
     }
 }
 
-public extension XMLAttributed {
-    /// instance attribute name
-    ///
-    /// - returns: attribute name
-    ///
-    public var attributeName:String {
-        get {
-            return Self.attributeName
-        }
-    }
-}
-
 public protocol HasXMLElementName {
     static var elementName:String {
         get
@@ -85,11 +73,6 @@ public extension HasXMLElementName {
             currentParent = self.parent!
         }
         return currentParent
-    }
-    var elementName:String {
-        get {
-            return Self.elementName
-        }
     }
     func select<T:HasXMLElementName>(type:T.Type) -> [T] {
         var ret = [T]()

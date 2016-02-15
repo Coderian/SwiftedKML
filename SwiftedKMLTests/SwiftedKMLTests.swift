@@ -31,6 +31,10 @@ class SwiftedKMLTests: XCTestCase {
         XCTAssertNotNil(kml)
         let childs = kml?.allChilds()
         print(childs)
+        let root = kml?.root
+        XCTAssert(root is Kml)
+        let rootfromChild = kml?.childs[0].root
+        XCTAssert(rootfromChild is Kml)
         let namestype = kml?.select(Name)
         for n in namestype! {
             print(n.value)
