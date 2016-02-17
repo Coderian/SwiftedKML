@@ -63,7 +63,7 @@ extension Model {
             willSet {
                 if newValue == nil {
                     let index = self.parent?.childs.indexOf({
-                        if let v = $0 as? Scale {
+                        if let v = $0 as? Model.Scale {
                             return v === self
                         }
                         return false

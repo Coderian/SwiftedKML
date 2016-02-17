@@ -70,6 +70,8 @@ public class SnippetType {
     }
     public var maxLines: MaxLines?
     init(attributes:[String:String]){
-        self.maxLines = MaxLines(value: attributes[MaxLines.attributeName]!)
+        if let v = attributes[MaxLines.attributeName] {
+            self.maxLines = MaxLines(value: v)
+        }
     }
 }
