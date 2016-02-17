@@ -218,7 +218,14 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
             kml = stack.pop() as? Kml
         }
         else{
-            debugPrint("OnEnd poped=\(stack.pop())")
+            var current = stack.pop()
+            debugPrint("OnEnd poped=\(current)")
+            if current.dynamicType.elementName == elementName {
+                let parent = stack.pop()
+                current.parent = parent
+                stack.push(parent)
+            }
+            
         }
         isCallEnded = true
 
@@ -238,7 +245,7 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
         }
         
         self.previewStackCount = stack.count
-        var current = stack.pop()
+        let current = stack.pop()
         debugPrint("poped=\(current) contents=\(contents)")
         debugPrint("self.contents=\(self.contents)")
         
@@ -324,17 +331,17 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
         case let v as X:                stack.push(v.makeRelation( self.contents, parent: stack.pop()))
         case let v as Y:                stack.push(v.makeRelation( self.contents, parent: stack.pop()))
         case let v as Z:                stack.push(v.makeRelation( self.contents, parent: stack.pop()))
-        default:
-            if stack.count > 0 {
-                let parent = stack.pop()
-                current.parent = parent
-                stack.push(parent)
-            }
+        default:                        break
+//            if stack.count > 0 {
+//                let parent = stack.pop()
+//                current.parent = parent
+//                stack.push(parent)
+//            }
         }
         
         stack.push(current)
         
-        print(stack)
+        debugPrint(stack)
     }
     
 }
