@@ -13,41 +13,24 @@ import Foundation
 /// [KML 2.2 shcema](http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd)
 ///
 ///     <element name="IconStyle" type="kml:IconStyleType" substitutionGroup="kml:AbstractColorStyleGroup"/>
-public class IconStyle : AbstractColorStyleGroup, HasXMLElementValue {
+public class IconStyle :SPXMLElement, AbstractColorStyleGroup, HasXMLElementValue {
     public static var elementName: String = "IconStyle"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? IconStyle {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
-                return
-            }
-            self.parent?.childs.append(self)
-            switch parent {
-            case let v as Style: v.value.iconStyle = self
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as Style: v.value.iconStyle = self
+                default: break
+                }
             }
         }
     }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String] = [:]
     public var value : IconStyleType
-    init(){
-        self.value = IconStyleType()
-    }
-    init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         self.value = IconStyleType(attributes: attributes)
+        super.init(attributes: attributes)
     }
     public var abstractObject : AbstractObjectType { return self.value }
     public var abstractSubStyle : AbstractSubStyleType { return self.value }
@@ -77,41 +60,19 @@ public class IconStyleType: AbstractColorStyleType {
     public var scale : Scale? // = 0.0
     public var heading: Heading? // = 0.0
     /// Iconが複数あるのでStyleIconとしている
-    public class Icon : HasXMLElementValue {
+    public class Icon :SPXMLElement, HasXMLElementValue {
         public static var elementName:String = "Icon"
-        public var parent:HasXMLElementName? {
-            willSet {
-                if newValue == nil {
-                    let index = self.parent?.childs.indexOf({
-                        if let v = $0 as? Description {
-                            return v === self
-                        }
-                        return false
-                    })
-                    self.parent?.childs.removeAtIndex(index!)
-                }
-            }
+        public override var parent:SPXMLElement? {
             didSet {
                 // 複数回呼ばれたて同じものがある場合は追加しない
-                let selects = self.parent?.select(self.dynamicType)
-                if selects!.contains({ $0 === self }) {
-                    return
-                }
-                self.parent?.childs.append(self)
-                switch parent {
-                case let v as IconStyle: v.value.icon = self
-                default:break
+                if self.parent?.childs.contains(self) == false {
+                    self.parent?.childs.insert(self)
+                    switch parent {
+                    case let v as IconStyle: v.value.icon = self
+                    default:break
+                    }
                 }
             }
-        }
-        public var childs:[HasXMLElementName] = []
-        public var attributes:[String:String]{
-            var attributes:[String:String] = [:]
-            if let attr = self.value.attribute {
-                attributes[attr.id.dynamicType.attributeName] = attr.id.value
-                attributes[attr.targetId.dynamicType.attributeName] = attr.targetId.value
-            }
-            return attributes
         }
         public var value: BasicLinkType = BasicLinkType()
     }

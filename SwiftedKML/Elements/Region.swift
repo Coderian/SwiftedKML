@@ -13,51 +13,30 @@ import Foundation
 /// [KML 2.2 shcema](http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd)
 ///
 ///     <element name="Region" type="kml:RegionType" substitutionGroup="kml:AbstractObjectGroup"/>
-public class Region : AbstractObjectGroup, HasXMLElementValue {
+public class Region :SPXMLElement, AbstractObjectGroup, HasXMLElementValue {
     public static var elementName: String = "Region"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? Region {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
-                return
-            }
-            self.parent?.childs.append(self)
-            switch parent {
-            case let v as NetworkLink:  v.value.region = self
-            case let v as Placemark:    v.value.region = self
-            case let v as Document:     v.value.region = self
-            case let v as Folder :      v.value.region = self
-            case let v as GroundOverlay:v.value.region = self
-            case let v as PhotoOverlay: v.value.region = self
-            case let v as ScreenOverlay:v.value.region = self
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as NetworkLink:  v.value.region = self
+                case let v as Placemark:    v.value.region = self
+                case let v as Document:     v.value.region = self
+                case let v as Folder :      v.value.region = self
+                case let v as GroundOverlay:v.value.region = self
+                case let v as PhotoOverlay: v.value.region = self
+                case let v as ScreenOverlay:v.value.region = self
+                default: break
+                }
             }
         }
-    }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String]{
-        var attributes:[String:String] = [:]
-        if let attr = self.value.attribute {
-            attributes[attr.id.dynamicType.attributeName] = attr.id.value
-            attributes[attr.targetId.dynamicType.attributeName] = attr.targetId.value
-        }
-        return attributes
     }
     public var value : RegionType
-    public init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         self.value = RegionType(attributes: attributes)
+        super.init(attributes: attributes)
     }
     public var abstractObject : AbstractObjectType { return self.value }
 }

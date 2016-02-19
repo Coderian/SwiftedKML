@@ -23,7 +23,7 @@ import Foundation
 ///     </restriction>
 ///     </simpleType>
 public enum ItemIconStateEnumType:String {
-    case OPEN, CLOSED, ERROR, FETCHING0, FETCHING1, FETCHING2
+    case OPEN="open", CLOSED="closed", ERROR="error", FETCHING0="fetching0", FETCHING1="fetching1", FETCHING2="fetching2"
 }
 /// KML ItemIconStateType
 ///

@@ -20,7 +20,7 @@ import Foundation
 ///     </restriction>
 ///     </simpleType>
 public enum UnitsEnumType:String {
-    case FRACTION, PIXELS, INSERTPIXELS
+    case FRACTION="fraction", PIXELS="pixels", INSERTPIXELS="insetPixels"
 }
 /// KML Vec2Type
 ///

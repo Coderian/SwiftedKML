@@ -26,14 +26,16 @@ class SwiftedKMLTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let kmlXmlUrl = bundle.URLForResource("KML_Sample", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root: Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある")
+        print(kmlParser.unSupported)
         let childs = kml?.allChilds()
         print(childs)
         let root = kml?.root
         XCTAssert(root is Kml)
-        let rootfromChild = kml?.childs[0].root
+        let rootfromChild = kml?.childs.first!.root
         XCTAssert(rootfromChild is Kml)
         let namestype = kml?.select(Name)
         for n in namestype! {
@@ -67,9 +69,10 @@ class SwiftedKMLTests: XCTestCase {
     func test_mackynormal() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("macky-normal", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
         let childs = kml?.allChilds()
         XCTAssert(childs?.count == 28 + 20 + 20 + 20 ,"failre all element count")
         let placemarks = kml?.select(Placemark)
@@ -115,113 +118,128 @@ class SwiftedKMLTests: XCTestCase {
     func test_sharedtextures() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("shared-textures", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     
     func test_spaceneedle() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("space-needle", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     
     func test_checkoffonly() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("check-off-only", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     
     func test_itemiconhotspot() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("item-icon-hotspot", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     
     func test_polygonfade() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("polygon-fade", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     
     func test_polygonminmax() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("polygon-min-max", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     
     func test_polygonsimple() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("polygon-simple", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     func test_polygonswapfade() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("polygon-swap-fade", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     func test_polygonswappop() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("polygon-swap-pop", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     func test_radiofolder() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("radio-folder", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     func test_radiohidechildren() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("radio-hide-children", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     func test_timeinherits() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("time-inherits", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     func test_timespanoverlay() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("time-span-overlay", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     func test_timestamppoint() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("time-stamp-point", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     func test_usacasf() {
         // refer code.google.com kml-samples project
         let kmlXmlUrl = bundle.URLForResource("usa-ca-sf", withExtension: "kml")
-        let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+        let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
         let kml = kmlParser.parse()
         XCTAssertNotNil(kml)
+        XCTAssert(0 == kmlParser.unSupported.count, "対象外がある" + kmlParser.unSupported.description)
     }
     func testCoodinates() {
         let parent:LinearRing = LinearRing(attributes: [:])
@@ -333,7 +351,7 @@ class SwiftedKMLTests: XCTestCase {
         self.measureBlock {
             // Put the code you want to measure the time of here.
             let kmlXmlUrl = self.bundle.URLForResource("KML_Sample", withExtension: "kml")
-            let kmlParser = KMLNSXMLParser(Url: kmlXmlUrl!)
+            let kmlParser = SPXMLParser(Url: kmlXmlUrl!, root:Kml.self)
             let kml = kmlParser.parse()
             XCTAssertNotNil(kml)
         }

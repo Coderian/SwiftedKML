@@ -13,38 +13,24 @@ import Foundation
 /// [KML 2.2 shcema](http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd)
 ///
 ///     <element name="Schema" type="kml:SchemaType"/>
-public class Schema : HasXMLElementValue {
+public class Schema :SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "Schema"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? Schema {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
-                return
-            }
-            self.parent?.childs.append(self)
-            switch parent {
-            case let v as Document: v.value.schema.append(self)
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as Document: v.value.schema.append(self)
+                default: break
+                }
             }
         }
     }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String] = [:]
     public var value : SchemaType
-    public init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         self.value = SchemaType(attributes: attributes)
+        super.init(attributes: attributes)
     }
 }
 /// KML SchemaType

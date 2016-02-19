@@ -18,47 +18,25 @@ import Foundation
 ///     PhotoOverlay</documentation>
 ///     </annotation>
 ///     </element>
-public class Href: HasXMLElementSimpleValue {
+public class Href:SPXMLElement,HasXMLElementValue,HasXMLElementSimpleValue {
     public static var elementName: String = "href"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? Href {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
-                return
-            }
-            self.parent?.childs.append(self)
-            switch parent {
-            case let v as ItemIcon:     v.value.href = self
-            case let v as IconStyleType.Icon:    v.value.href = self
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as ItemIcon:     v.value.href = self
+                case let v as IconStyleType.Icon:    v.value.href = self
+                default: break
+                }
             }
         }
     }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String] = [:]
     public var value: String = ""
-    init(){}
-    init( href : String){
-        self.value = href
-    }
-    public func makeRelation(parent: HasXMLElementName) -> HasXMLElementName {
+    public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
+        self.value = contents
         self.parent = parent
         return parent
-    }
-    public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
-        self.value = contents
-        return makeRelation(parent)
     }
 }

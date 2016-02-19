@@ -21,45 +21,30 @@ import Foundation
 ///     </restriction>
 ///     </simpleType>
 public enum ListItemTypeEnumType : String{
-    case RADIOFOLDER, CHECK, CHECKHIDECHILDREN, CHECKOFFONLY
+    case RADIOFOLDER="radioFolder", CHECK="check", CHECKHIDECHILDREN="checkHideChildren", CHECKOFFONLY="checkOffOnly"
 }
 /// KML ListItemType
 ///
 /// [KML 2.2 shcema](http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd)
 ///
 ///     <element name="listItemType" type="kml:listItemTypeEnumType" default="check"/>
-public class ListItemType: HasXMLElementSimpleValue {
+public class ListItemType:SPXMLElement,HasXMLElementValue,HasXMLElementSimpleValue {
     public static var elementName: String = "listItemType"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? ListItemType {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
-                return
-            }
-            self.parent?.childs.append(self)
-            switch parent {
-            case let v as ListStyle: v.value.listItemType = self
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as ListStyle: v.value.listItemType = self
+                default: break
+                }
             }
         }
     }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String] = [:]
     public var value: ListItemTypeEnumType = .CHECK
-    public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
-        self.value = ListItemTypeEnumType(rawValue: contents.uppercaseString)!
+    public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
+        self.value = ListItemTypeEnumType(rawValue: contents)!
         self.parent = parent
         return parent
     }

@@ -10,8 +10,6 @@
 		724A43531C634F3900014AD6 /* SwiftedKML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724A43481C634F3900014AD6 /* SwiftedKML.framework */; };
 		724A43581C634F3900014AD6 /* SwiftedKMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A43571C634F3900014AD6 /* SwiftedKMLTests.swift */; };
 		724A43651C6350F200014AD6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 724A43631C6350F200014AD6 /* LICENSE */; };
-		724A436A1C63524500014AD6 /* KMLNSXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A43671C63524500014AD6 /* KMLNSXMLParser.swift */; };
-		724A436B1C63524500014AD6 /* XMLElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A43681C63524500014AD6 /* XMLElement.swift */; };
 		724A436C1C63524500014AD6 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A43691C63524500014AD6 /* Stack.swift */; };
 		724A44091C63525300014AD6 /* AbstractColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A436D1C63525300014AD6 /* AbstractColorStyle.swift */; };
 		724A440A1C63525300014AD6 /* AbstractContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A436E1C63525300014AD6 /* AbstractContainer.swift */; };
@@ -173,6 +171,8 @@
 		724A44AA1C635B5C00014AD6 /* macky-normal.kml in Resources */ = {isa = PBXBuildFile; fileRef = 724A44A71C635B5C00014AD6 /* macky-normal.kml */; };
 		724A44AB1C635B5C00014AD6 /* shared-textures.kml in Resources */ = {isa = PBXBuildFile; fileRef = 724A44A81C635B5C00014AD6 /* shared-textures.kml */; };
 		724A44AC1C635B5C00014AD6 /* space-needle.kml in Resources */ = {isa = PBXBuildFile; fileRef = 724A44A91C635B5C00014AD6 /* space-needle.kml */; };
+		729CF4431C76E52D00DF2F2C /* SPNSXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729CF4411C76E52D00DF2F2C /* SPNSXMLParser.swift */; };
+		729CF4441C76E52D00DF2F2C /* SPXMLElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729CF4421C76E52D00DF2F2C /* SPXMLElement.swift */; };
 		72BE73A31C643384006E4BFA /* check-off-only.kml in Resources */ = {isa = PBXBuildFile; fileRef = 72BE73921C643384006E4BFA /* check-off-only.kml */; };
 		72BE73A41C643384006E4BFA /* continents.kmz in Resources */ = {isa = PBXBuildFile; fileRef = 72BE73931C643384006E4BFA /* continents.kmz */; };
 		72BE73A51C643384006E4BFA /* item-icon-hotspot.kml in Resources */ = {isa = PBXBuildFile; fileRef = 72BE73941C643384006E4BFA /* item-icon-hotspot.kml */; };
@@ -210,8 +210,6 @@
 		724A43591C634F3900014AD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724A43631C6350F200014AD6 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		724A43641C6350F200014AD6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		724A43671C63524500014AD6 /* KMLNSXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMLNSXMLParser.swift; sourceTree = "<group>"; };
-		724A43681C63524500014AD6 /* XMLElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLElement.swift; sourceTree = "<group>"; };
 		724A43691C63524500014AD6 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		724A436D1C63525300014AD6 /* AbstractColorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractColorStyle.swift; sourceTree = "<group>"; };
 		724A436E1C63525300014AD6 /* AbstractContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractContainer.swift; sourceTree = "<group>"; };
@@ -373,6 +371,8 @@
 		724A44A71C635B5C00014AD6 /* macky-normal.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "macky-normal.kml"; sourceTree = "<group>"; };
 		724A44A81C635B5C00014AD6 /* shared-textures.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "shared-textures.kml"; sourceTree = "<group>"; };
 		724A44A91C635B5C00014AD6 /* space-needle.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "space-needle.kml"; sourceTree = "<group>"; };
+		729CF4411C76E52D00DF2F2C /* SPNSXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPNSXMLParser.swift; sourceTree = "<group>"; };
+		729CF4421C76E52D00DF2F2C /* SPXMLElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPXMLElement.swift; sourceTree = "<group>"; };
 		72BE73921C643384006E4BFA /* check-off-only.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "check-off-only.kml"; sourceTree = "<group>"; };
 		72BE73931C643384006E4BFA /* continents.kmz */ = {isa = PBXFileReference; lastKnownFileType = file; path = continents.kmz; sourceTree = "<group>"; };
 		72BE73941C643384006E4BFA /* item-icon-hotspot.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "item-icon-hotspot.kml"; sourceTree = "<group>"; };
@@ -434,9 +434,9 @@
 		724A434A1C634F3900014AD6 /* SwiftedKML */ = {
 			isa = PBXGroup;
 			children = (
+				729CF4411C76E52D00DF2F2C /* SPNSXMLParser.swift */,
+				729CF4421C76E52D00DF2F2C /* SPXMLElement.swift */,
 				724A43691C63524500014AD6 /* Stack.swift */,
-				724A43681C63524500014AD6 /* XMLElement.swift */,
-				724A43671C63524500014AD6 /* KMLNSXMLParser.swift */,
 				724A43621C63500700014AD6 /* Elements */,
 				724A434D1C634F3900014AD6 /* Info.plist */,
 			);
@@ -808,7 +808,6 @@
 				724A44231C63525300014AD6 /* Create.swift in Sources */,
 				724A443A1C63525300014AD6 /* IconStyle.swift in Sources */,
 				724A44571C63525400014AD6 /* MaxSessionLength.swift in Sources */,
-				724A436A1C63524500014AD6 /* KMLNSXMLParser.swift in Sources */,
 				724A44461C63525400014AD6 /* LinearRing.swift in Sources */,
 				724A445E1C63525400014AD6 /* MinLodPixels.swift in Sources */,
 				724A44541C63525400014AD6 /* MaxFadeExtent.swift in Sources */,
@@ -861,6 +860,7 @@
 				724A44821C63525400014AD6 /* SimpleData.swift in Sources */,
 				724A448F1C63525400014AD6 /* Text.swift in Sources */,
 				724A44441C63525400014AD6 /* LatLonBox.swift in Sources */,
+				729CF4441C76E52D00DF2F2C /* SPXMLElement.swift in Sources */,
 				724A44A11C63525400014AD6 /* Width.swift in Sources */,
 				724A44211C63525300014AD6 /* Cookie.swift in Sources */,
 				724A446E1C63525400014AD6 /* Placemark.swift in Sources */,
@@ -886,6 +886,7 @@
 				724A44651C63525400014AD6 /* NetworkLinkControl.swift in Sources */,
 				724A443C1C63525300014AD6 /* ImagePyramid.swift in Sources */,
 				724A44791C63525400014AD6 /* Roll.swift in Sources */,
+				729CF4431C76E52D00DF2F2C /* SPNSXMLParser.swift in Sources */,
 				724A441E1C63525300014AD6 /* Change.swift in Sources */,
 				724A443D1C63525300014AD6 /* ItemIcon.swift in Sources */,
 				724A443F1C63525300014AD6 /* Key.swift in Sources */,
@@ -904,7 +905,6 @@
 				724A441D1C63525300014AD6 /* Camera.swift in Sources */,
 				724A449C1C63525400014AD6 /* ViewRefreshTime.swift in Sources */,
 				724A44471C63525400014AD6 /* LineString.swift in Sources */,
-				724A436B1C63524500014AD6 /* XMLElement.swift in Sources */,
 				724A44721C63525400014AD6 /* Range.swift in Sources */,
 				724A447B1C63525400014AD6 /* RotationXY.swift in Sources */,
 				724A44591C63525400014AD6 /* MaxWidth.swift in Sources */,

@@ -13,29 +13,23 @@ import Foundation
 /// [KML 2.2 shcema](http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd)
 ///
 ///     <element name="ItemIcon" type="kml:ItemIconType" substitutionGroup="kml:AbstractObjectGroup"/>
-public class ItemIcon : AbstractObjectGroup, HasXMLElementValue {
+public class ItemIcon :SPXMLElement, AbstractObjectGroup, HasXMLElementValue {
     public static var elementName: String = "ItemIcon"
-    public var parent:HasXMLElementName? {
+    public override var parent:SPXMLElement? {
         didSet {
-            self.parent?.childs.append(self)
-            switch parent {
-            case let v as ListStyle: v.value.itemIcon.append(self)
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as ListStyle: v.value.itemIcon.append(self)
+                default: break
+                }
             }
         }
     }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String]{
-        var attributes:[String:String] = [:]
-        if let attr = self.value.attribute {
-            attributes[attr.id.dynamicType.attributeName] = attr.id.value
-            attributes[attr.targetId.dynamicType.attributeName] = attr.targetId.value
-        }
-        return attributes
-    }
     public var value : ItemIconType
-    init(attributes:[String:String]){
+    required public init(attributes:[String:String]){
         self.value = ItemIconType(attributes: attributes)
+        super.init(attributes: attributes)
     }
     public var abstractObject : AbstractObjectType { return self.value }
 }

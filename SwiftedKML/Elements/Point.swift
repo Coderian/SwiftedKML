@@ -13,47 +13,26 @@ import Foundation
 /// [KML 2.2 shcema](http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd)
 ///
 ///     <element name="Point" type="kml:PointType" substitutionGroup="kml:AbstractGeometryGroup"/>
-public class Point : AbstractGeometryGroup, HasXMLElementValue {
+public class Point :SPXMLElement, AbstractGeometryGroup, HasXMLElementValue {
     public static var elementName: String = "Point"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? Point {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
-                return
-            }
-            self.parent?.childs.append(self)
-            switch parent {
-            case let v as PhotoOverlay: v.value.point = self
-            case let v as MultiGeometry:v.value.abstractGeometryGroup.append(self)
-            case let v as Placemark:    v.value.abstractGeometryGroup = self
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as PhotoOverlay: v.value.point = self
+                case let v as MultiGeometry:v.value.abstractGeometryGroup.append(self)
+                case let v as Placemark:    v.value.abstractGeometryGroup = self
+                default: break
+                }
             }
         }
-    }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String]{
-        var attributes:[String:String] = [:]
-        if let attr = self.value.attribute {
-            attributes[attr.id.dynamicType.attributeName] = attr.id.value
-            attributes[attr.targetId.dynamicType.attributeName] = attr.targetId.value
-        }
-        return attributes
     }
     public var value : PointType
-    init(attributes:[String:String]){
+    required public init(attributes:[String:String]){
         self.value = PointType(attributes: attributes)
+        super.init(attributes: attributes)
     }
     public var abstractObject : AbstractObjectType { return self.value }
     public var abstractGeometry : AbstractGeometryType { return self.value }

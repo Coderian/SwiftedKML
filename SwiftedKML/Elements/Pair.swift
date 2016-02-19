@@ -13,45 +13,24 @@ import Foundation
 /// [KML 2.2 shcema](http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd)
 ///
 ///     <element name="Pair" type="kml:PairType" substitutionGroup="kml:AbstractObjectGroup"/>
-public class Pair : AbstractObjectGroup, HasXMLElementValue{
+public class Pair :SPXMLElement, AbstractObjectGroup, HasXMLElementValue{
     public static var elementName: String = "Pair"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? Pair {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
-                return
-            }
-            self.parent?.childs.append(self)
-            switch parent {
-            case let v as StyleMap: v.value.pair.append(self)
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as StyleMap: v.value.pair.append(self)
+                default: break
+                }
             }
         }
-    }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String]{
-        var attributes:[String:String] = [:]
-        if let attr = self.value.attribute {
-            attributes[attr.id.dynamicType.attributeName] = attr.id.value
-            attributes[attr.targetId.dynamicType.attributeName] = attr.targetId.value
-        }
-        return attributes
     }
     public var value : PairType
-    init(attributes:[String:String]){
+    required public init(attributes:[String:String]){
         self.value = PairType(attributes: attributes)
+        super.init(attributes: attributes)
     }
     public var abstractObject : AbstractObjectType { return self.value }
 }
