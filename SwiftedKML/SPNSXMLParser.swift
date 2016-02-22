@@ -63,8 +63,12 @@ public class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,
         switch current {
         case let element as UnSupportXMLElement:
             if element.elementName == elementName {
+                element.value = self.contents
                 unSupported.push(element)
             }
+        case let elemnt as HasXMLElementSimpleValue :
+            // stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+            elemnt.makeRelation( self.contents, parent: stack.items[stack.count-1])
         case let element as HasXMLElementName:
             if element.dynamicType.elementName == elementName {
                 if self.rootType.elementName == elementName {
@@ -95,19 +99,8 @@ public class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,
         }
         self.previewStackCount = stack.count
         
-        let current = stack.items[stack.count-1]
         if self.debugPrintOn {
-            debugPrint("OnCharacters [\(string)] poped=\(current) contents=\(self.contents)")
-        }
-        if let v = current as? HasXMLElementSimpleValue {
-            // stack.push(v.makeRelation( self.contents, parent: stack.pop()))
-            v.makeRelation( self.contents, parent: stack.items[stack.count-2])
-        } else if let v  = current as? UnSupportXMLElement{
-            v.value = self.contents
-        }
-        // stack.push(current)
-        if self.debugPrintOn {
-            debugPrint(stack)
+            debugPrint("OnCharacters \(stack) self.contents=[\(self.contents)]")
         }
     }
 }
