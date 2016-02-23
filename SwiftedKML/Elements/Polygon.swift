@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import MapKit
 
 /// KML Polygon
 ///
@@ -66,16 +65,4 @@ public class PolygonType: AbstractGeometryType {
     public var innerBoundaryIs: InnerBoundaryIs?
     public var polygonSimpleExtensionGroup: [AnyObject] = []
     public var polygonObjectExtensionGroup: [AbstractObjectGroup] = []
-}
-
-extension Polygon {
-    var polygon:MKPolygon {
-        var coords = self.value.outerBoundaryIs!.value.linearRing!.value.coordinates!.locationCoordinates
-        var polygons:[MKPolygon] = []
-        if var innerBoundaryIsCoord:[CLLocationCoordinate2D] = self.value.innerBoundaryIs?.value.linearRing?.value.coordinates?.locationCoordinates {
-            polygons.append(MKPolygon(coordinates: &innerBoundaryIsCoord, count: innerBoundaryIsCoord.count))
-        }
-        
-        return MKPolygon(coordinates: &coords, count: coords.count, interiorPolygons: polygons)
-    }
 }

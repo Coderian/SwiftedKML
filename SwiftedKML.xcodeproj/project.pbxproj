@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		722A0D6F1C7C62A8005C30D8 /* ExtensionMapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722A0D6E1C7C62A8005C30D8 /* ExtensionMapKit.swift */; };
 		724A43531C634F3900014AD6 /* SwiftedKML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724A43481C634F3900014AD6 /* SwiftedKML.framework */; };
 		724A43581C634F3900014AD6 /* SwiftedKMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A43571C634F3900014AD6 /* SwiftedKMLTests.swift */; };
 		724A43651C6350F200014AD6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 724A43631C6350F200014AD6 /* LICENSE */; };
@@ -203,6 +204,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		722A0D6E1C7C62A8005C30D8 /* ExtensionMapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMapKit.swift; sourceTree = "<group>"; };
 		724A43481C634F3900014AD6 /* SwiftedKML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftedKML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		724A434D1C634F3900014AD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724A43521C634F3900014AD6 /* SwiftedKMLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftedKMLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -439,6 +441,7 @@
 				724A43691C63524500014AD6 /* Stack.swift */,
 				724A43621C63500700014AD6 /* Elements */,
 				724A434D1C634F3900014AD6 /* Info.plist */,
+				722A0D6E1C7C62A8005C30D8 /* ExtensionMapKit.swift */,
 			);
 			path = SwiftedKML;
 			sourceTree = "<group>";
@@ -889,6 +892,7 @@
 				729CF4431C76E52D00DF2F2C /* SPNSXMLParser.swift in Sources */,
 				724A441E1C63525300014AD6 /* Change.swift in Sources */,
 				724A443D1C63525300014AD6 /* ItemIcon.swift in Sources */,
+				722A0D6F1C7C62A8005C30D8 /* ExtensionMapKit.swift in Sources */,
 				724A443F1C63525300014AD6 /* Key.swift in Sources */,
 				724A44191C63525300014AD6 /* Begin.swift in Sources */,
 				724A448D1C63525400014AD6 /* TargetHref.swift in Sources */,

@@ -49,14 +49,14 @@ class SwiftedKMLTests: XCTestCase {
             }
             for pt in points {
                 print(pt.value) // TODO:MKAnnotation
-                print("MKAnnotation \(pt.value.coordinates?.locationCoordinates)")
+                print("MKAnnotation \(pt.value.coordinates?.toLocationCoordinate2Ds)")
             }
             for plg in p.select(SwiftedKML.Polygon){
                 print(p.value.name?.value)
                 print(plg.value.innerBoundaryIs?.value.linearRing?.value.coordinates)
                 print(plg.value.outerBoundaryIs?.value.linearRing?.value.coordinates) // TODO:MKOverlay
-                print("MKOverlay \(plg.value.outerBoundaryIs?.value.linearRing?.value.coordinates?.locationCoordinates)")
-                print("poly = \(plg.polygon)")
+                print("MKOverlay \(plg.value.outerBoundaryIs?.value.linearRing?.value.coordinates?.toLocationCoordinate2Ds)")
+                print("poly = \(plg.toMKPolygon)")
             }
         }
         

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import MapKit
 
 /// KML Coordinates
 ///
@@ -55,20 +54,5 @@ public class Coordinates: SPXMLElement, HasXMLElementValue, HasXMLElementSimpleV
         }
         self.parent = parent
         return parent
-    }
-}
-
-extension Coordinates {
-    var locationCoordinates:[CLLocationCoordinate2D] {
-        var ret:[CLLocationCoordinate2D]=[]
-        for v in value {
-            let longitude:Double = Double(v.longitude)!
-            let latitude:Double = Double(v.latitude)!
-            let coord = CLLocationCoordinate2DMake(latitude, longitude)
-            if CLLocationCoordinate2DIsValid(coord) {
-                ret.append(coord)
-            }
-        }
-        return ret
     }
 }
