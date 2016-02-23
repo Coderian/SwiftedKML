@@ -62,6 +62,7 @@ class SwiftedKMLTests: XCTestCase {
         
         let styles = kml?.select("id", attributeValue: "downArrowIcon")
         XCTAssert(styles?.count == 1)
+        XCTAssert(styles![0].root === kml,"root 間違い")
         print(styles)
         
     }

@@ -69,7 +69,7 @@ public extension SPXMLElement {
     var root:SPXMLElement {
         var currentParent:SPXMLElement = self
         while currentParent.parent != nil {
-            currentParent = self.parent!
+            currentParent = currentParent.parent!
         }
         return currentParent
     }
