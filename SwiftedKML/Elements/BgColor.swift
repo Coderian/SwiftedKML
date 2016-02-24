@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 /// KML BgColor
 ///
@@ -29,9 +28,9 @@ public class BgColor:SPXMLElement, HasXMLElementValue,HasXMLElementSimpleValue {
             }
         }
     }
-    public var value:UIColor = UIColor(hexString: "ffffffff")!
+    public var value:String = "ffffffff"
     public func makeRelation(contents : String, parent: SPXMLElement) -> SPXMLElement {
-        self.value = UIColor(hexString: contents)!
+        self.value = contents
         self.parent = parent
         return parent
     }

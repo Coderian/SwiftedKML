@@ -8,6 +8,7 @@
 
 import Foundation
 import MapKit
+import UIKit
 
 /// MapKit 用の値に変換するextension
 
@@ -40,8 +41,8 @@ extension Placemark {
             let renderer = polygons[0].getMKOverlayPathRenderer()!
             if styles.count == 1 {
                 let style = styles[0] as! Style
-                renderer.strokeColor = style.value.lineStyle?.value.color?.value
-                renderer.fillColor = style.value.polyStyle?.value.color?.value
+                renderer.strokeColor = style.value.lineStyle?.value.color?.toUIColor
+                renderer.fillColor = style.value.polyStyle?.value.color?.toUIColor
                 renderer.lineWidth = CGFloat((style.value.lineStyle?.value.width?.value)!)
             }
             return renderer
@@ -116,12 +117,15 @@ extension Polygon {
 
 extension LineString {
     // MKShape
-    var toMKShape:MKShape? {
-        return nil
+    var toMKPolyLine:MKPolyline? {
+        let coords:[CLLocationCoordinate2D] = self.value.coordinates!.toLocationCoordinate2Ds
+        let ret = MKPolyline(coordinates: UnsafeMutablePointer<CLLocationCoordinate2D>(coords), count: coords.count)
+        return ret
     }
     // KMOverlayPathRenderer
-    func getMKOverlayPathRenderer(target: MKOverlay) -> MKOverlayPathRenderer? {
-        return nil
+    func getMKOverlayPathRenderer(target: MKPolyline) -> MKOverlayPathRenderer? {
+        let renderer = MKPolylineRenderer(polyline: target)
+        return renderer
     }
 }
 
@@ -138,5 +142,58 @@ extension Coordinates {
             }
         }
         return ret
+    }
+}
+
+
+
+extension BgColor {
+    var toUIColor:UIColor? {
+        return UIColor(hexString: self.value)
+    }
+}
+
+extension Color {
+    var toUIColor:UIColor? {
+        return UIColor(hexString: self.value)
+    }
+}
+
+extension TextColor {
+    var toUIColor:UIColor? {
+        return UIColor(hexString: self.value)
+    }
+}
+
+/// <summary>
+/// <![CDATA[
+///
+///        aabbggrr
+///
+///        ffffffff: opaque white
+///        ff000000: opaque black
+///
+///        ]]>
+/// </summary>
+public extension UIColor {
+    public convenience init?(hexString: String){
+        let r, g, b, a : CGFloat
+        if hexString.characters.count == 8 {
+            let scanner = NSScanner(string: hexString)
+            var hexNumber: UInt64 = 0
+            if scanner.scanHexLongLong(&hexNumber) {
+                a = CGFloat((hexNumber & 0xff000000) >> 24) / 255
+                b = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
+                g = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
+                r = CGFloat(hexNumber & 0x000000ff) / 255
+                self.init(red:r, green: g, blue: b, alpha: a)
+                return
+            }
+        }
+        return nil
+    }
+    func toHexString() -> String {
+        // TODO: hexString
+        return ""
     }
 }

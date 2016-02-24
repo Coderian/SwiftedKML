@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 /// KML Color
 ///
@@ -34,46 +33,14 @@ public class Color:SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
             }
         }
     }
-    public var value: UIColor = UIColor(hexString: "ffffffff")!
+    public var value: String = "ffffffff"
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
-        self.value = UIColor(hexString: contents)!
+        self.value = contents
         self.parent = parent
         return parent
     }
 }
 
-/// <summary>
-/// <![CDATA[
-///
-///        aabbggrr
-///
-///        ffffffff: opaque white
-///        ff000000: opaque black
-///
-///        ]]>
-/// </summary>
-public extension UIColor {
-    public convenience init?(hexString: String){
-        let r, g, b, a : CGFloat
-        if hexString.characters.count == 8 {
-            let scanner = NSScanner(string: hexString)
-            var hexNumber: UInt64 = 0
-            if scanner.scanHexLongLong(&hexNumber) {
-                a = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-                b = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-                g = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-                r = CGFloat(hexNumber & 0x000000ff) / 255
-                self.init(red:r, green: g, blue: b, alpha: a)
-                return
-            }
-        }
-        return nil
-    }
-    func toHexString() -> String {
-        // TODO: hexString
-        return ""
-    }
-}
 // <simpleType name="colorType">
 // <annotation>
 // <documentation><![CDATA[
@@ -89,6 +56,7 @@ public extension UIColor {
 // <length value="4"/>
 // </restriction>
 // </simpleType>
-public class colorType : UIColor {
+public class colorType {
+    var value:String!
 }
 

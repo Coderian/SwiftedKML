@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 /// KML TextColor
 ///
@@ -28,9 +27,9 @@ public class TextColor:SPXMLElement,HasXMLElementValue, HasXMLElementSimpleValue
             }
         }
     }
-    public var value : UIColor = UIColor(hexString: "ff000000")!
+    public var value : String = "ff000000"
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
-        self.value = UIColor(hexString: contents)!
+        self.value = contents
         self.parent = parent
         return parent
     }
