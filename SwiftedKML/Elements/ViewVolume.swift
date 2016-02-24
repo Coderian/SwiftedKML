@@ -56,11 +56,11 @@ public class ViewVolume :SPXMLElement, AbstractObjectGroup ,HasXMLElementValue {
 ///     <element name="ViewVolumeSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="ViewVolumeObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class ViewVolumeType: AbstractObjectType {
-    public var leftFov: LeftFov? // = 0.0
-    public var rightFov: RightFov? // = 0.0
-    public var bottomFov: BottomFov? // = 0.0
-    public var topFov: TopFov? // = 0.0
-    public var near: Near? // = 0.0
+    public var leftFov: LeftFov! // = 0.0
+    public var rightFov: RightFov! // = 0.0
+    public var bottomFov: BottomFov! // = 0.0
+    public var topFov: TopFov! // = 0.0
+    public var near: Near! // = 0.0
     public var viewVolumeSimpleExtensionGroup: [AnyObject] = []
     public var viewVolumeObjectExtensionGroup: [AbstractObjectGroup] = []
 }

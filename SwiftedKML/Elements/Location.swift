@@ -54,9 +54,9 @@ public class Location :SPXMLElement, AbstractObjectGroup, HasXMLElementValue {
 ///     <element name="LocationSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="LocationObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class LocationType: AbstractObjectType {
-    public var longitude: Longitude? // = 0.0
-    public var latitude: Latitude? // = 0.0
-    public var altitude: Altitude? // = 0.0
+    public var longitude: Longitude! // = 0.0
+    public var latitude: Latitude! // = 0.0
+    public var altitude: Altitude! // = 0.0
     public var locationSimpleExtensionGroup: [AnyObject] = []
     public var locationObjectExtensionGroup: [AbstractObjectGroup] = []
 }

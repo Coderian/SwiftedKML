@@ -20,7 +20,7 @@ import Foundation
 ///     </restriction>
 ///     </simpleType>
 public enum RefreshModeEnumType : String{
-    case ONCHANGE="onChange", ONINTERVAL="onInterval", ONEXPIRE="onExpire"
+    case OnChange="onChange", OnInterval="onInterval", OnExpire="onExpire"
 }
 /// KML RefreshMode
 ///
@@ -41,7 +41,7 @@ public class RefreshMode :SPXMLElement,HasXMLElementValue,HasXMLElementSimpleVal
             }
         }
     }
-    public var value: RefreshModeEnumType = .ONCHANGE
+    public var value: RefreshModeEnumType = .OnChange
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = RefreshModeEnumType(rawValue: contents)!
         self.parent = parent

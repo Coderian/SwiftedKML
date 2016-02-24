@@ -56,7 +56,7 @@ public class SchemaType {
             self.value = value
         }
     }
-    public var name: Name?
+    public var name: Name!
     public struct ID: XMLAttributed {
         public static var attributeName: String = "id"
         public var value :String = ""
@@ -64,7 +64,7 @@ public class SchemaType {
             self.value = value
         }
     }
-    var id: ID?
+    var id: ID!
     init(attributes:[String:String]){
         self.name = Name(value: attributes[Name.attributeName]!)
         self.id = ID(value: attributes[ID.attributeName]!)

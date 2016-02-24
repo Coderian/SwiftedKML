@@ -36,9 +36,9 @@ public protocol AbstractOverlayGroup : AbstractFeatureGroup {
 ///     <element name="AbstractOverlaySimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="AbstractOverlayObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class AbstractOverlayType : AbstractFeatureType {
-    public var color: Color?
-    public var drawOrder: DrawOrder?
-    public var icon: Icon?
+    public var color: Color!
+    public var drawOrder: DrawOrder!
+    public var icon: Icon!
     public var abstractOverlaySimpleExtensionGroup: [AnyObject] = []
     public var abstractOverlayObjectExtensionGroup: [AbstractObjectGroup] = []
 }

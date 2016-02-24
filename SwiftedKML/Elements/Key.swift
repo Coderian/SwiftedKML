@@ -19,7 +19,7 @@ import Foundation
 ///     </restriction>
 ///     </simpleType>
 public enum StyleStateEnumType : String {
-    case NORMAL="normal", HIGHLIGHT="highlight"
+    case Normal="normal", Highlight="highlight"
 }
 /// KML Key
 ///
@@ -40,7 +40,7 @@ public class Key:SPXMLElement,HasXMLElementValue,HasXMLElementSimpleValue {
             }
         }
     }
-    public var value: StyleStateEnumType = .NORMAL
+    public var value: StyleStateEnumType = .Normal
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = StyleStateEnumType(rawValue: contents)!
         self.parent = parent

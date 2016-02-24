@@ -56,10 +56,10 @@ public class ListStyle :SPXMLElement, AbstractSubStyleGroup, HasXMLElementValue 
 ///     <element name="ListStyleSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="ListStyleObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class ListStyleType: AbstractSubStyleType {
-    public var listItemType: ListItemType? // = .Check
-    public var bgColor: BgColor? // = UIColor(hexString:"ffffffff")!
+    public var listItemType: ListItemType! // = .Check
+    public var bgColor: BgColor! // = UIColor(hexString:"ffffffff")!
     public var itemIcon: [ItemIcon] = []
-    public var maxSnippetLines: MaxSnippetLines? // = 2
+    public var maxSnippetLines: MaxSnippetLines! // = 2
     public var listStyleSimpleExtensionGroup: [AnyObject] = []
     public var listStyleObjectExtensionGroup: [AbstractObjectGroup] = []
 }

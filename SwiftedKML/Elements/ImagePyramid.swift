@@ -54,10 +54,10 @@ public class ImagePyramid :SPXMLElement, AbstractObjectGroup, HasXMLElementValue
 ///     <element name="ImagePyramidSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="ImagePyramidObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class ImagePyramidType: AbstractObjectType {
-    public var tileSize: TileSize? // = 256
-    public var maxWidth: MaxWidth? // = 0
-    public var maxHeight: MaxHeight? // = 0
-    public var gridOrigin: GridOrigin? // = GridOriginEnumType.LowerLeft
+    public var tileSize: TileSize! // = 256
+    public var maxWidth: MaxWidth! // = 0
+    public var maxHeight: MaxHeight! // = 0
+    public var gridOrigin: GridOrigin! // = GridOriginEnumType.LowerLeft
     public var imagePyramidSimpleExtensionGroup : [AnyObject] = []
     public var imagePyramidObjectExtensionGroup : [AbstractObjectGroup] = []
 }

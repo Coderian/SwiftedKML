@@ -208,14 +208,14 @@ public class Kml :SPXMLElement, XMLElementRoot, HasXMLElementValue , CustomStrin
 ///     <element name="KmlSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="KmlObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class KmlType {
-    public var networkLinkControl: NetworkLinkControl?
-    public var abstractFeatureGroup: AbstractFeatureGroup?
+    public var networkLinkControl: NetworkLinkControl!
+    public var abstractFeatureGroup: AbstractFeatureGroup!
     public var kmlSimpleExtensionGroup: [AnyObject] = []
     public var kmlObjectExtensionGroup: [AbstractObjectGroup] = []
     public struct Hint : XMLAttributed {
         public static var attributeName: String = "hint"
         public var value: String = ""
     }
-    public var hint: Hint?
+    public var hint: Hint!
 }
 

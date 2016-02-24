@@ -62,9 +62,9 @@ public class PointType: AbstractGeometryType,CustomStringConvertible {
             return (self.coordinates?.value.description)!
         }
     }
-    public var extrude: Extrude? // = false
-    public var altitudeModeGroup: AltitudeModeGroup?
-    public var coordinates: Coordinates?
+    public var extrude: Extrude! // = false
+    public var altitudeModeGroup: AltitudeModeGroup!
+    public var coordinates: Coordinates!
     public var pointSimpleExtensionGroup: [AnyObject] = []
     public var pointObjectExtensionGroup: [AbstractObjectGroup] = []
 }

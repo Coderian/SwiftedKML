@@ -48,7 +48,7 @@ public class Update :SPXMLElement, HasXMLElementValue {
 ///     <element name="UpdateOpExtensionGroup" abstract="true"/>
 ///     <element name="UpdateExtensionGroup" abstract="true"/>
 public class UpdateType {
-    public var targetHref : TargetHref?
+    public var targetHref : TargetHref!
     public var createOrDeleteOrChange: [AnyObject] = []
     public var updateExtensionGroup: [AnyObject] = []
 }

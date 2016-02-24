@@ -60,8 +60,8 @@ public class TimeSpan :SPXMLElement, AbstractTimePrimitiveGroup, HasXMLElementVa
 ///     <element name="TimeSpanSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="TimeSpanObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class TimeSpanType: AbstractTimePrimitiveType {
-    public var begin: Begin?
-    public var end: End?
+    public var begin: Begin!
+    public var end: End!
     public var timeSpanSimpleExtensionGroup : [AnyObject] = []
     public var timeSpanObjectExtensionGroup : [AbstractObjectGroup] = []
 }

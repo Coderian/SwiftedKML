@@ -59,9 +59,9 @@ public class GroundOverlay :SPXMLElement, AbstractOverlayGroup, HasXMLElementVal
 ///     <element name="GroundOverlaySimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="GroundOverlayObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class GroundOverlayType: AbstractOverlayType {
-    public var altitude:Altitude?
-    public var altitudeModeGroup:AltitudeModeGroup?
-    public var latLonBox:LatLonBox?
+    public var altitude:Altitude!
+    public var altitudeModeGroup:AltitudeModeGroup!
+    public var latLonBox:LatLonBox!
     public var groundOverlaySimpleExtensionGroup:[AnyObject] = []
     public var groundOverlayObjectExtensionGroup:[AbstractObjectGroup] = []
 }

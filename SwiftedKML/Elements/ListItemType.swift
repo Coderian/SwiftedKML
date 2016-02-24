@@ -21,7 +21,7 @@ import Foundation
 ///     </restriction>
 ///     </simpleType>
 public enum ListItemTypeEnumType : String{
-    case RADIOFOLDER="radioFolder", CHECK="check", CHECKHIDECHILDREN="checkHideChildren", CHECKOFFONLY="checkOffOnly"
+    case RadioFolder="radioFolder", Check="check", CheckHideChildren="checkHideChildren", CheckOffOnly="checkOffOnly"
 }
 /// KML ListItemType
 ///
@@ -42,7 +42,7 @@ public class ListItemType:SPXMLElement,HasXMLElementValue,HasXMLElementSimpleVal
             }
         }
     }
-    public var value: ListItemTypeEnumType = .CHECK
+    public var value: ListItemTypeEnumType = .Check
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = ListItemTypeEnumType(rawValue: contents)!
         self.parent = parent

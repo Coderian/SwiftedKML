@@ -62,7 +62,7 @@ public class InnerBoundaryIs : SPXMLElement, HasXMLElementValue {
 ///     </sequence>
 ///     </complexType>
 public class BoundaryType {
-    public var linearRing: LinearRing?
+    public var linearRing: LinearRing!
     public var boundarySimpleExtensionGroup: [AnyObject] = []
     public var boundaryObjectExtensionGroup: [AbstractObjectGroup] = []
 }

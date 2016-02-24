@@ -71,13 +71,13 @@ public class Camera : SPXMLElement, AbstractViewGroup, HasXMLElementValue {
 ///     <element name="CameraSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="CameraObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class CameraType : AbstractViewType {
-    public var longitude: Longitude?
-    public var latitude: Latitude?
-    public var altitude: Altitude?
-    public var heading: Heading?
-    public var tilt: Tilt?
-    public var roll: Roll?
-    public var altitudeModeGroup: AltitudeModeGroup?
+    public var longitude: Longitude!
+    public var latitude: Latitude!
+    public var altitude: Altitude!
+    public var heading: Heading!
+    public var tilt: Tilt!
+    public var roll: Roll!
+    public var altitudeModeGroup: AltitudeModeGroup!
     public var cameraSimpleExtensionGroup: [AnyObject] = []
     public var cameraObjectExtensionGroup: [AbstractObjectGroup] = []
 }

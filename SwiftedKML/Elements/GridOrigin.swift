@@ -19,7 +19,7 @@ import Foundation
 ///     </restriction>
 ///     </simpleType>
 public enum GridOriginEnumType : String{
-    case LOWERLEFT="lowerLeft", UPPERLEFT="upperLeft"
+    case LowerLeft="lowerLeft", UpperLeft="upperLeft"
 }
 /// KML GridOrigin
 ///
@@ -40,7 +40,7 @@ public class GridOrigin:SPXMLElement,HasXMLElementValue,HasXMLElementSimpleValue
             }
         }
     }
-    public var value: GridOriginEnumType = .LOWERLEFT
+    public var value: GridOriginEnumType = .LowerLeft
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = GridOriginEnumType(rawValue: contents)!
         self.parent = parent

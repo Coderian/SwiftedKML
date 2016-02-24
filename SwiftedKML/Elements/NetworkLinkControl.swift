@@ -52,16 +52,16 @@ public class NetworkLinkControl :SPXMLElement, HasXMLElementValue {
 ///     <element name="NetworkLinkControlSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="NetworkLinkControlObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class NetworkLinkControlType {
-    public var minRefreshPeriod: MinRefreshPeriod? // = 0.0
-    public var maxSessionLength: MaxSessionLength? // = -1.0
-    public var cookie: Cookie?
-    public var message: Message?
-    public var linkName: LinkName?
-    public var linkDescription: LinkDescription?
-    public var linkSnippet: LinkSnippet?
-    public var expires: Expires?
-    public var update: Update?
-    public var abstractViewGroup: AbstractViewGroup?
+    public var minRefreshPeriod: MinRefreshPeriod! // = 0.0
+    public var maxSessionLength: MaxSessionLength! // = -1.0
+    public var cookie: Cookie!
+    public var message: Message!
+    public var linkName: LinkName!
+    public var linkDescription: LinkDescription!
+    public var linkSnippet: LinkSnippet!
+    public var expires: Expires!
+    public var update: Update!
+    public var abstractViewGroup: AbstractViewGroup!
     public var networkLinkControlSimpleExtensionGroup: [AnyObject] = []
     public var networkLinkControlObjectExtensionGroup: [AbstractObjectGroup] = []
 }

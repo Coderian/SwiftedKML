@@ -29,7 +29,7 @@ public protocol AbstractObjectGroup {
 ///     <element name="ObjectSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 public class AbstractObjectType {
     public var objectSimpleExtensionGroup: [AnyObject] = []
-    public var attribute: IdAttributes?
+    public var attribute: IdAttributes!
     public init(){}
     public init(attributes:[String:String]){
         self.attribute = IdAttributes(attributes: attributes)

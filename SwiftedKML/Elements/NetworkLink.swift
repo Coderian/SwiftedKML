@@ -62,8 +62,8 @@ public class NetworkLink :SPXMLElement, AbstractFeatureGroup , HasXMLElementValu
 ///     <element name="NetworkLinkSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="NetworkLinkObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class NetworkLinkType: AbstractFeatureType {
-    public var refreshVisibility:RefreshVisibility?
-    public var flyToView:FlyToView?
+    public var refreshVisibility:RefreshVisibility!
+    public var flyToView:FlyToView!
 //    var link:Link?
     public var networkLinkSimpleExtensionGroup:[AnyObject] = []
     public var networkLinkObjectExtensionGroup:[AbstractObjectGroup] = []

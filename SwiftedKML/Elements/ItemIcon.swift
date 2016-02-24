@@ -52,8 +52,8 @@ public class ItemIcon :SPXMLElement, AbstractObjectGroup, HasXMLElementValue {
 ///     <element name="ItemIconSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="ItemIconObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class ItemIconType : AbstractObjectType {
-    public var state: State?
-    public var href: Href?
+    public var state: State!
+    public var href: Href!
     public var itemIconSimpleExtensionGroup: [AnyObject] = []
     public var itemIconObjectExtensionGroup: [AbstractObjectGroup] = []
 }

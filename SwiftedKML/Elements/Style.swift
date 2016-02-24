@@ -65,12 +65,12 @@ public class Style :SPXMLElement, AbstractStyleSelectorGroup, HasXMLElementValue
 ///     <element name="StyleSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="StyleObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class StyleType: AbstractStyleSelectorType {
-    public var iconStyle : IconStyle?
-    public var labelStyle : LabelStyle?
-    public var lineStyle : LineStyle?
-    public var polyStyle : PolyStyle?
-    public var balloonStyle : BalloonStyle?
-    public var listStyle : ListStyle?
+    public var iconStyle : IconStyle!
+    public var labelStyle : LabelStyle!
+    public var lineStyle : LineStyle!
+    public var polyStyle : PolyStyle!
+    public var balloonStyle : BalloonStyle!
+    public var listStyle : ListStyle!
     public var styleSimpleExtensionGroup : [AnyObject] = []
     public var styleObjectExtensionGroup : [AbstractObjectGroup] = []
 }

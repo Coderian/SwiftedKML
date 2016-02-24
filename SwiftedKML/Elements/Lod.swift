@@ -55,10 +55,10 @@ public class Lod :SPXMLElement, AbstractObjectGroup, HasXMLElementValue {
 ///     <element name="LodSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="LodObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class LodType: AbstractObjectType {
-    public var minLodPixels: MinLodPixels? // = 0.0
-    public var maxLodPixels: MaxLodPixels? // = -1.0
-    public var minFadeExtent: MinFadeExtent? // = 0.0
-    public var maxFadeExtent: MaxFadeExtent? // = 0.0
+    public var minLodPixels: MinLodPixels! // = 0.0
+    public var maxLodPixels: MaxLodPixels! // = -1.0
+    public var minFadeExtent: MinFadeExtent! // = 0.0
+    public var maxFadeExtent: MaxFadeExtent! // = 0.0
     public var lodSimpleExtensionGroup: [AnyObject] = []
     public var lodObjectExtensionGroup: [AbstractObjectGroup] = []
 }

@@ -59,7 +59,7 @@ public class TimeStamp :SPXMLElement, AbstractTimePrimitiveGroup, HasXMLElementV
 ///     <element name="TimeStampSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="TimeStampObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class TimeStampType: AbstractTimePrimitiveType {
-    public var when : When?
+    public var when : When!
     public var timeStampSimpleExtensionGroup : [AnyObject] = []
     public var timeStampObjectExtensionGroup : [AbstractObjectGroup] = []
 }

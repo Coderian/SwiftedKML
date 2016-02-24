@@ -61,24 +61,24 @@ public protocol AbstractFeatureGroup : AbstractObjectGroup {
 ///     <element name="AbstractFeatureObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 ///     <element name="AbstractFeatureSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 public class AbstractFeatureType : AbstractObjectType {
-    public var name: Name?
-    public var visibility : Visibility?
-    public var open : Open?
+    public var name: Name!
+    public var visibility : Visibility!
+    public var open : Open!
     /// atom:autor not supported
-    public var author : AnyObject?
+    public var author : AnyObject!
     /// atom:link  not supported
-    public var link: AnyObject?
-    public var address: Address?
+    public var link: AnyObject!
+    public var address: Address!
     /// xal:AddressDetails not supported
-    public var AddressDetails : AnyObject?
-    public var phoneNumber: PhoneNumber?
+    public var AddressDetails : AnyObject!
+    public var phoneNumber: PhoneNumber!
     // Snippet/snippet -> deprecated in 2.2
-    public var description: Description?
-    public var abstractViewGroup : AbstractViewGroup?
-    public var abstractTimePrimitiveGroup: AbstractTimePrimitiveGroup?
-    public var styleUrl: StyleUrl?
+    public var description: Description!
+    public var abstractViewGroup : AbstractViewGroup!
+    public var abstractTimePrimitiveGroup: AbstractTimePrimitiveGroup!
+    public var styleUrl: StyleUrl!
     public var abstractStyleSelectorGroup: [AbstractStyleSelectorGroup] = []
-    public var region: Region?
+    public var region: Region!
     // Metadata/ExtendedData -> deprecated in 2.2
     public var abstractFeatureSimpleExtensionGroup: [AnyObject] = []
     public var abstractFeatureObjectExtensionGroup: [AbstractObjectGroup] = []

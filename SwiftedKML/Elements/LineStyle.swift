@@ -54,7 +54,7 @@ public class LineStyle :SPXMLElement, AbstractColorStyleGroup, HasXMLElementValu
 ///     <element name="LineStyleSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="LineStyleObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class LineStyleType: AbstractColorStyleType {
-    public var width: Width? // = 1.0
+    public var width: Width! // = 1.0
     public var lineStyleSimpleExtensionGroup: [AnyObject] = []
     public var lineStyleObjectExtensionGroup: [AbstractObjectGroup] = []
 }

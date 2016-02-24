@@ -61,11 +61,11 @@ public class PhotoOverlay :SPXMLElement, AbstractOverlayGroup, HasXMLElementValu
 // <element name="PhotoOverlaySimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 // <element name="PhotoOverlayObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class PhotoOverlayType: AbstractOverlayType {
-    public var rotation:Rotation?
-    public var viewVolume:ViewVolume?
-    public var imagePyramid:ImagePyramid?
-    public var point:Point?
-    public var shape: Shape?
+    public var rotation:Rotation!
+    public var viewVolume:ViewVolume!
+    public var imagePyramid:ImagePyramid!
+    public var point:Point!
+    public var shape: Shape!
     public var photoOverlaySimpleExtensionGroup:[AnyObject] = []
     public var photoOverlayObjectExtensionGroup:[AbstractObjectGroup] = []
 }

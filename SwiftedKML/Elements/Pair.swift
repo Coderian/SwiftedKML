@@ -54,8 +54,8 @@ public class Pair :SPXMLElement, AbstractObjectGroup, HasXMLElementValue{
 ///     <element name="PairSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="PairObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class PairType: AbstractObjectType {
-    public var key: Key? // = .Normal
-    public var styleUrl: StyleUrl?
+    public var key: Key! // = .Normal
+    public var styleUrl: StyleUrl!
     public var abstractStyleSelectorGroup: [AbstractStyleSelectorGroup] = []
     public var pairSimpleExtensionGroup: [AnyObject] = []
     public var pairObjectExtensionGroup: [AbstractObjectGroup] = []

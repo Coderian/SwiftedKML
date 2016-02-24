@@ -57,8 +57,8 @@ public class IconStyle :SPXMLElement, AbstractColorStyleGroup, HasXMLElementValu
 ///     <element name="IconStyleSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="IconStyleObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class IconStyleType: AbstractColorStyleType {
-    public var scale : Scale? // = 0.0
-    public var heading: Heading? // = 0.0
+    public var scale : Scale! // = 0.0
+    public var heading: Heading! // = 0.0
     /// Iconが複数あるのでStyleIconとしている
     public class Icon :SPXMLElement, HasXMLElementValue {
         public static var elementName:String = "Icon"
@@ -76,8 +76,8 @@ public class IconStyleType: AbstractColorStyleType {
         }
         public var value: BasicLinkType = BasicLinkType()
     }
-    public var icon: Icon?
-    public var hotSpot: HotSpot?
+    public var icon: Icon!
+    public var hotSpot: HotSpot!
     public var iconStyleSimpleExtensionGroup: [AnyObject] = []
     public var iconStyleObjectExtensionGroup: [AbstractObjectGroup] = []
 }

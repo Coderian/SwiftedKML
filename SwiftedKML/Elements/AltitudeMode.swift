@@ -20,7 +20,7 @@ import Foundation
 ///     </restriction>
 ///     </simpleType>
 public enum AltitudeModeEnumType : String {
-    case CLAMPTOGROUND="clampToGround", RELATIVETOGROUND="relativeToGround", ABSOLUTE="absolute"
+    case ClampToGround="clampToGround", RelativeToGround="relativeToGround", Absolute="absolute"
 }
 
 /// KML AltitudeModeGroup
@@ -60,7 +60,7 @@ public class AltitudeMode : SPXMLElement, HasXMLElementValue, AltitudeModeGroup,
             }
         }
     }
-    public var value: AltitudeModeEnumType = .CLAMPTOGROUND
+    public var value: AltitudeModeEnumType = .ClampToGround
     public func makeRelation(contents : String, parent: SPXMLElement) -> SPXMLElement {
         self.value = AltitudeModeEnumType(rawValue: contents)!
         self.parent = parent

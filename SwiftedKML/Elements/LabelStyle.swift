@@ -54,7 +54,7 @@ public class LabelStyle :SPXMLElement, AbstractColorStyleGroup, HasXMLElementVal
 ///     <element name="LabelStyleSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="LabelStyleObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class LabelStyleType: AbstractColorStyleType {
-    public var scale: Scale? // = 0.0
+    public var scale: Scale! // = 0.0
     public var labelStyleSimpleExtensionGroup: [AnyObject] = []
     public var labelStyleObjectExtensionGroup: [AbstractObjectGroup] = []
 }

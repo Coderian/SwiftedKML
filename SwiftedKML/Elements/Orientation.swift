@@ -58,9 +58,9 @@ public class Orientation :SPXMLElement, AbstractObjectGroup, HasXMLElementValue 
 ///     <element name="OrientationSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="OrientationObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class OrientationType: AbstractObjectType {
-    public var heading: Heading? // = 0.0
-    public var tilt: Tilt? // = 0.0
-    public var roll: Roll? // = 0.0
+    public var heading: Heading! // = 0.0
+    public var tilt: Tilt! // = 0.0
+    public var roll: Roll! // = 0.0
     public var orientationSimpleExtensionGroup: [AnyObject] = []
     public var orientationObjectExtensionGroup: [AbstractObjectGroup] = []
 }

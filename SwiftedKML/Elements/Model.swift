@@ -59,12 +59,12 @@ public class Model :SPXMLElement, AbstractGeometryGroup, HasXMLElementValue {
 ///     <element name="ModelSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="ModelObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class ModelType: AbstractGeometryType {
-    public var altitudeModeGroup : AltitudeModeGroup?
-    public var location: Location?
-    public var orientation: Orientation?
-    public var scale: Model.Scale?
-    public var link: Link?
-    public var resourceMap: ResourceMap?
+    public var altitudeModeGroup : AltitudeModeGroup!
+    public var location: Location!
+    public var orientation: Orientation!
+    public var scale: Model.Scale!
+    public var link: Link!
+    public var resourceMap: ResourceMap!
     public var modelSimpleExtensionGroup: [AnyObject] = []
     public var modelObjectExtensionGroup: [AbstractObjectGroup] = []
 }

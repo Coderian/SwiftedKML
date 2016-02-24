@@ -55,8 +55,8 @@ public class PolyStyle :SPXMLElement, AbstractColorStyleGroup, HasXMLElementValu
 ///     <element name="PolyStyleSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="PolyStyleObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class PolyStyleType: AbstractColorStyleType {
-    public var fill: Fill? // = true
-    public var outline: Outline? // = true
+    public var fill: Fill! // = true
+    public var outline: Outline! // = true
     public var polyStyleSimpleExtensionGroup: [AnyObject] = []
     public var polyStyleObjectExtensionGroup: [AbstractObjectGroup] = []
 }

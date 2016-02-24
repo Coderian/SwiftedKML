@@ -59,8 +59,8 @@ public class Region :SPXMLElement, AbstractObjectGroup, HasXMLElementValue {
 ///     <element name="RegionSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="RegionObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class RegionType: AbstractObjectType {
-    public var latLonAltBox: LatLonAltBox?
-    public var lod : Lod?
+    public var latLonAltBox: LatLonAltBox!
+    public var lod : Lod!
     public var regionSimpleExtensionGroup: [AnyObject] = []
     public var regionObjectExtensionGroup: [AbstractObjectGroup] = []
 }

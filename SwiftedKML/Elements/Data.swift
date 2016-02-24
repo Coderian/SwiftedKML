@@ -53,7 +53,7 @@ public class Data : SPXMLElement, AbstractObjectGroup, HasXMLElementValue {
 ///     </complexType>
 ///     <element name="DataExtension" abstract="true"/>
 public class DataType : AbstractObjectType {
-    public var displayName : DisplayName?
+    public var displayName : DisplayName!
     public var value: Value = Value()
     public var dataExtension: [AnyObject] = [] // not supported
     public struct Name : XMLAttributed {

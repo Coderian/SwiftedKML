@@ -56,7 +56,7 @@ public class Placemark :SPXMLElement, AbstractFeatureGroup , HasXMLElementValue{
 ///     <element name="PlacemarkSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="PlacemarkObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class PlacemarkType: AbstractFeatureType {
-    public var abstractGeometryGroup:AbstractGeometryGroup?
+    public var abstractGeometryGroup:AbstractGeometryGroup!
     public var placemarkSimpleExtensionGroup:[AnyObject] = []
     public var placemarkObjectExtensionGroup:[AbstractObjectGroup] = []
 }

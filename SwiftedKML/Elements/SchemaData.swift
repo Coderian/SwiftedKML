@@ -55,7 +55,7 @@ public class SchemaDataType: AbstractObjectType {
     public var schemaDataExtension: [AnyObject] = []
     public struct SchemaUrl : XMLAttributed {
         public static var attributeName:String = "schemaUrl"
-        public var value: String? // TODO: #globalIconなどの自己参照があるので要検討
+        public var value: String! // TODO: #globalIconなどの自己参照があるので要検討
     }
-    public var schemaUrl: SchemaUrl?
+    public var schemaUrl: SchemaUrl!
 }

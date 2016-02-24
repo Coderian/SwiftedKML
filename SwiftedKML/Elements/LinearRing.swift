@@ -59,10 +59,10 @@ public class LinearRing :SPXMLElement,AbstractGeometryGroup, HasXMLElementValue 
 ///     <element name="LinearRingSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="LinearRingObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class LinearRingType: AbstractGeometryType {
-    public var extrude : Extrude? // = false
-    public var tessellate : Tessellate? // = false
-    public var altitudeModeGroup : AltitudeModeGroup?
-    public var coordinates : Coordinates?
+    public var extrude : Extrude! // = false
+    public var tessellate : Tessellate! // = false
+    public var altitudeModeGroup : AltitudeModeGroup!
+    public var coordinates : Coordinates!
     public var linearRingSimpleExtensionGroup : [AnyObject] = []
     public var linearRingObjectExtensionGroup : [AbstractObjectGroup] = []
 }

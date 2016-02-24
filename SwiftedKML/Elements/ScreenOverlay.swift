@@ -61,11 +61,11 @@ public class ScreenOverlay :SPXMLElement, AbstractOverlayGroup, HasXMLElementVal
 ///     <element name="ScreenOverlaySimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="ScreenOverlayObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class ScreenOverlayType: AbstractOverlayType {
-    public var overlayXY:OverlayXY?
-    public var screenXY: ScreenXY?
-    public var rotationXY:RotationXY?
-    public var size:Size?
-    public var rotation:Rotation?
+    public var overlayXY:OverlayXY!
+    public var screenXY: ScreenXY!
+    public var rotationXY:RotationXY!
+    public var size:Size!
+    public var rotation:Rotation!
     public var screenOverlaySimpleExtensionGroup:[AnyObject] = []
     public var screenOverlayObjectExtensionGroup:[AbstractObjectGroup] = []
 }

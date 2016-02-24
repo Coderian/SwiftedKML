@@ -56,8 +56,8 @@ public class AliasType : AbstractObjectType, CustomStringConvertible{
     public var description:String {
         return (targetHref?.description)! + (sourceHref?.description)!
     }
-    public var targetHref: TargetHref?
-    public var sourceHref: SourceHref?
+    public var targetHref: TargetHref!
+    public var sourceHref: SourceHref!
     public var aliasSimpleExtensionGroup: [AnyObject] = []
     public var aliasObjectExtensionGroup: [AbstractObjectGroup] = []
 }

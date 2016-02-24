@@ -23,13 +23,13 @@ public class IdAttributes : CustomStringConvertible{
     // ID
     public struct ID : XMLAttributed {
         public static var attributeName:String = "id"
-        public var value:String?
+        public var value:String!
     }
     public var id: ID = ID()
     // NCName
     public struct NCName: XMLAttributed {
         public static var attributeName:String = "targetId"
-        public var value: String?
+        public var value: String!
     }
     public var targetId: NCName = NCName()
     public init(id:String){

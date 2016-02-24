@@ -36,8 +36,8 @@ public protocol AbstractColorStyleGroup : AbstractSubStyleGroup {
 ///     <element name="AbstractColorStyleObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 ///     <element name="AbstractColorStyleSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 public class AbstractColorStyleType : AbstractSubStyleType {
-    public var color: Color?
-    public var colorMode: ColorMode?
+    public var color: Color!
+    public var colorMode: ColorMode!
     public var abstractColorStyleSimpleExtensionGroup : [AnyObject] = []
     public var abstractColorStyleObjectExtensionGroup : [AbstractObjectGroup] = []
 }

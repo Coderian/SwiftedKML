@@ -26,7 +26,7 @@ import Foundation
 ///     <element name="BasicLinkSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="BasicLinkObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class BasicLinkType : AbstractObjectType {
-    public var href: Href?
+    public var href: Href!
     public var basicLinkSimpleExtensionGroup: [AnyObject] = []
     public var basicLinkObjectExtensionGroup: [AbstractObjectGroup] = []
 }

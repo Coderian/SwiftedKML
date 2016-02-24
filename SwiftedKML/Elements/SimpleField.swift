@@ -53,12 +53,12 @@ public class SimpleFieldType {
         public static var attributeName:String = "type"
         public var value: String = ""
     }
-    public var type: Type?
+    public var type: Type!
     public struct Name: XMLAttributed {
         public static var attributeName:String = "name"
         public var value : String = ""
     }
-    public var name: Name?
+    public var name: Name!
     init(attributes:[String:String]){
         self.type = Type(value: attributes[Type.attributeName]!)
         self.name = Name(value: attributes[Name.attributeName]!)

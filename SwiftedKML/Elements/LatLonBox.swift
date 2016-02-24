@@ -52,7 +52,7 @@ public class LatLonBox :SPXMLElement, AbstractObjectGroup, HasXMLElementValue {
 ///     <element name="LatLonBoxSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="LatLonBoxObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class LatLonBoxType: AbstractLatLonBoxType {
-    public var rotation: Rotation? // = 0.0
+    public var rotation: Rotation! // = 0.0
     public var latLonBoxSimpleExtensionGroup: [AnyObject] = []
     public var latLonBoxObjectExtensionGroup: [AbstractObjectGroup] = []
 }

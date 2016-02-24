@@ -83,9 +83,9 @@ extension Model {
     ///     <element name="ScaleSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
     ///     <element name="ScaleObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
     public class ScaleType : AbstractObjectType {
-        public var x: X? // = 1.0
-        public var y: Y? // = 1.0
-        public var z: Z? // = 1.0
+        public var x: X! // = 1.0
+        public var y: Y! // = 1.0
+        public var z: Z! // = 1.0
         public var scaleSimpleExtensionGroup: [AnyObject] = []
         public var scaleObjectExtensionGroup: [AbstractObjectGroup] = []
     }

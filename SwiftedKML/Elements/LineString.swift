@@ -57,10 +57,10 @@ public class LineString :SPXMLElement, AbstractGeometryGroup, HasXMLElementValue
 ///     <element name="LineStringSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="LineStringObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class LineStringType: AbstractGeometryType {
-    public var extrude: Extrude? // = false
-    public var tessellate: Tessellate? // = false
-    public var altitudeModeGroup : AltitudeModeGroup?
-    public var coordinates : Coordinates?
+    public var extrude: Extrude! // = false
+    public var tessellate: Tessellate! // = false
+    public var altitudeModeGroup : AltitudeModeGroup!
+    public var coordinates : Coordinates!
     public var linearRingSimpleExtensionGroup : [AnyObject] = []
     public var linearRingObjectExtensionGroup : [AbstractObjectGroup] = []
 }

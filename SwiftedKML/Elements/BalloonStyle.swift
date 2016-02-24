@@ -66,11 +66,11 @@ public class BalloonStyle : SPXMLElement, AbstractSubStyleGroup, HasXMLElementVa
 ///     <element name="BalloonStyleSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="BalloonStyleObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class BalloonStyleType : AbstractSubStyleType {
-    public var color: Color? // = UIColor(hexString:"ffffffff")!
-    public var bgColor: BgColor? // = UIColor(hexString:"ffffffff")!
-    public var textColor: TextColor? // = UIColor(hexString:"ff000000")!
-    public var text: Text?
-    public var displayMode: DisplayMode? //= .Default
+    public var color: Color! // = UIColor(hexString:"ffffffff")!
+    public var bgColor: BgColor! // = UIColor(hexString:"ffffffff")!
+    public var textColor: TextColor! // = UIColor(hexString:"ff000000")!
+    public var text: Text!
+    public var displayMode: DisplayMode! //= .Default
     public var balloonStyleSimpleExtensionGroup: [AnyObject] = []
     public var balloonStyleObjectExtensionGroup: [AbstractObjectGroup] = []
 }

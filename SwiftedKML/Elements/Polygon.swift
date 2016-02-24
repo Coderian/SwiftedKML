@@ -58,11 +58,11 @@ public class Polygon :SPXMLElement, AbstractGeometryGroup, HasXMLElementValue {
 ///     <element name="PolygonSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="PolygonObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class PolygonType: AbstractGeometryType {
-    public var extrude: Extrude? // = false
-    public var tessellate: Tessellate? // = false
-    public var altitudeModeGroup: AltitudeModeGroup?
-    public var outerBoundaryIs: OuterBoundaryIs?
-    public var innerBoundaryIs: InnerBoundaryIs?
+    public var extrude: Extrude! // = false
+    public var tessellate: Tessellate! // = false
+    public var altitudeModeGroup: AltitudeModeGroup!
+    public var outerBoundaryIs: OuterBoundaryIs!
+    public var innerBoundaryIs: InnerBoundaryIs!
     public var polygonSimpleExtensionGroup: [AnyObject] = []
     public var polygonObjectExtensionGroup: [AbstractObjectGroup] = []
 }

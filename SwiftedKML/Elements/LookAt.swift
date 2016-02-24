@@ -66,13 +66,13 @@ public class LookAt :SPXMLElement, AbstractViewGroup, HasXMLElementValue {
 ///     <element name="LookAtSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="LookAtObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class LookAtType: AbstractViewType {
-    public var longitude: Longitude? // = 0.0
-    public var latitude: Latitude? // = 0.0
-    public var altitude: Altitude? // = 0.0
-    public var heading: Heading? // = 0.0
-    public var tilt: Tilt? // = 0.0
-    public var range: Range? // = 0.0
-    public var altitudeModeGroup: AltitudeModeGroup?
+    public var longitude: Longitude! // = 0.0
+    public var latitude: Latitude! // = 0.0
+    public var altitude: Altitude! // = 0.0
+    public var heading: Heading! // = 0.0
+    public var tilt: Tilt! // = 0.0
+    public var range: Range! // = 0.0
+    public var altitudeModeGroup: AltitudeModeGroup!
     public var lookAtSimpleExtensionGroup : [AnyObject] = []
     public var lookAtObjectExtensionGroup : [AbstractObjectGroup] = []
 }

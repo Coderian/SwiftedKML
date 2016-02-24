@@ -63,13 +63,13 @@ public class Link :SPXMLElement, AbstractObjectGroup, HasXMLElementValue {
 ///     <element name="LinkSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="LinkObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class LinkType: BasicLinkType {
-    public var refreshMode: RefreshMode? // = .OnChange
-    public var refreshInterval: RefreshInterval? // = 4.0
-    public var viewRefreshMode: ViewRefreshMode? // = .Never
-    public var viewRefreshTime: ViewRefreshTime? // = 4.0
-    public var viewBoundScale: ViewBoundScale? // = 1.0
-    public var viewFormat: ViewFormat?
-    public var httpQuery: HttpQuery?
+    public var refreshMode: RefreshMode! // = .OnChange
+    public var refreshInterval: RefreshInterval! // = 4.0
+    public var viewRefreshMode: ViewRefreshMode! // = .Never
+    public var viewRefreshTime: ViewRefreshTime! // = 4.0
+    public var viewBoundScale: ViewBoundScale! // = 1.0
+    public var viewFormat: ViewFormat!
+    public var httpQuery: HttpQuery!
     public var linkSimpleExtensionGroup: [AnyObject] = []
     public var linkObjectExtensionGroup: [AbstractObjectGroup] = []
 }

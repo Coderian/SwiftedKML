@@ -19,7 +19,7 @@ import Foundation
 ///     </restriction>
 ///     </simpleType>
 public enum ColorModeEnumType:String {
-    case NORMAL="normal", RANDOM="random"
+    case Normal="normal", Random="random"
 }
 /// KML ColorMode
 ///
@@ -43,7 +43,7 @@ public class ColorMode: SPXMLElement, HasXMLElementValue, HasXMLElementSimpleVal
             }
         }
     }
-    public var value: ColorModeEnumType = .NORMAL
+    public var value: ColorModeEnumType = .Normal
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = ColorModeEnumType(rawValue: contents)!
         self.parent = parent

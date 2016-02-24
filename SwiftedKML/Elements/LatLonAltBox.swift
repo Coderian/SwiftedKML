@@ -29,10 +29,10 @@ import Foundation
 ///     <element name="AbstractLatLonBoxSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="AbstractLatLonBoxObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class AbstractLatLonBoxType : AbstractObjectType {
-    public var north: North? // = 180.0
-    public var south: South? // = -180.0
-    public var east: East? // = 180.0
-    public var west: West? // = -180.0
+    public var north: North! // = 180.0
+    public var south: South! // = -180.0
+    public var east: East! // = 180.0
+    public var west: West! // = -180.0
     public var abstractLatLonBoxSimpleExtensionGroup: [AnyObject] = []
     public var abstractLatLonBoxObjectExtensionGroup: [AbstractObjectGroup] = []
 }
@@ -82,9 +82,9 @@ public class LatLonAltBox :SPXMLElement, AbstractObjectGroup, HasXMLElementValue
 ///     <element name="LatLonAltBoxSimpleExtensionGroup" abstract="true" type="anySimpleType"/>
 ///     <element name="LatLonAltBoxObjectExtensionGroup" abstract="true" substitutionGroup="kml:AbstractObjectGroup"/>
 public class LatLonAltBoxType: AbstractLatLonBoxType {
-    public var minAltitude: MinAltitude? // = 0.0
-    public var maxAltitude: MaxAltitude? // = 0.0
-    public var altitudeModeGroup: AltitudeModeGroup?
+    public var minAltitude: MinAltitude! // = 0.0
+    public var maxAltitude: MaxAltitude! // = 0.0
+    public var altitudeModeGroup: AltitudeModeGroup!
     public var latLonAltBoxSimpleExtensionGroup: [AnyObject] = []
     public var latLonAltBoxObjectExtensionGroup: [AbstractObjectGroup] = []
 }
