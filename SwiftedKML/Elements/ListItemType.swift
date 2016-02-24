@@ -30,11 +30,11 @@ public enum ListItemTypeEnumType : String{
 ///     <element name="listItemType" type="kml:listItemTypeEnumType" default="check"/>
 public class ListItemType:SPXMLElement,HasXMLElementValue,HasXMLElementSimpleValue {
     public static var elementName: String = "listItemType"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as ListStyle: v.value.listItemType = self
                 default: break

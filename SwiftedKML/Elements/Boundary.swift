@@ -15,11 +15,11 @@ import Foundation
 ///     <element name="outerBoundaryIs" type="kml:BoundaryType"/>
 public class OuterBoundaryIs : SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "outerBoundaryIs"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as Polygon: v.value.outerBoundaryIs = self
                 default: break
@@ -36,11 +36,11 @@ public class OuterBoundaryIs : SPXMLElement, HasXMLElementValue {
 ///     <element name="innerBoundaryIs" type="kml:BoundaryType"/>
 public class InnerBoundaryIs : SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "innerBoundaryIs"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as Polygon: v.value.innerBoundaryIs = self
                 default: break

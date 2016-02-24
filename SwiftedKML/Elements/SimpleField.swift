@@ -15,11 +15,11 @@ import Foundation
 ///     <element name="SimpleField" type="kml:SimpleFieldType"/>
 public class SimpleField :SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "SimpleFiled"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as Schema: v.value.simpleField.append(self)
                 default: break
@@ -71,11 +71,11 @@ public class SimpleFieldType {
 ///     <element name="SimpleFieldExtension" abstract="true"/>
 public class SimpleFieldExtension :SPXMLElement, HasXMLElementValue {
     public static var elementName:String = "SimpleFieldExtension"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet{
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as SimpleField: v.value.simpleFieldExtension.append(self)
                 default: break

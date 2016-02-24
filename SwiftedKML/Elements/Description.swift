@@ -15,11 +15,11 @@ import Foundation
 ///     <element name="description" type="string"/>
 public class Description:SPXMLElement,HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName:String = "description"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as Document:     v.value.description = self
                 case let v as Folder:       v.value.description = self

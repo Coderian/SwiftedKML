@@ -19,7 +19,7 @@ import Foundation
 ///     </restriction>
 ///     </simpleType>
 public enum DisplayModeEnumType : String{
-    case DEFAULT="default", HIDE="hide"
+    case Default="default", Hide="hide"
 }
 /// KML DisplayMode
 ///
@@ -28,11 +28,11 @@ public enum DisplayModeEnumType : String{
 ///     <element name="displayMode" type="kml:displayModeEnumType" default="default"/>
 public class DisplayMode:SPXMLElement,HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName:String =  "displayMode"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as BalloonStyle : v.value.displayMode = self
                 default: break
@@ -40,7 +40,7 @@ public class DisplayMode:SPXMLElement,HasXMLElementValue, HasXMLElementSimpleVal
             }
         }
     }
-    public var value: DisplayModeEnumType = .DEFAULT
+    public var value: DisplayModeEnumType = .Default
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = DisplayModeEnumType(rawValue: contents)!
         self.parent = parent

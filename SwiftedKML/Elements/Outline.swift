@@ -15,11 +15,11 @@ import Foundation
 ///     <element name="outline" type="boolean" default="1"/>
 public class Outline:SPXMLElement,HasXMLElementValue,HasXMLElementSimpleValue {
     public static var elementName: String = "outline"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as PolyStyle: v.value.outline = self
                 default: break

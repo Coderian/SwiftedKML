@@ -15,11 +15,11 @@ import Foundation
 ///     <element name="scale" type="double" default="1.0"/>
 public class Scale:SPXMLElement,HasXMLElementValue,HasXMLElementSimpleValue {
     public static var elementName: String = "scale"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as IconStyle:    v.value.scale = self
                 case let v as LabelStyle:   v.value.scale = self
@@ -44,11 +44,11 @@ extension Model {
     ///     <element name="Scale" type="kml:ScaleType" substitutionGroup="kml:AbstractObjectGroup"/>
     public class Scale :SPXMLElement, AbstractObjectGroup, HasXMLElementValue {
         public static var elementName: String = "Scale"
-        public override var parent:SPXMLElement? {
+        public override var parent:SPXMLElement! {
             didSet {
                 // 複数回呼ばれたて同じものがある場合は追加しない
-                if self.parent?.childs.contains(self) == false {
-                    self.parent?.childs.insert(self)
+                if self.parent.childs.contains(self) == false {
+                    self.parent.childs.insert(self)
                     switch parent {
                     case let v as Model: v.value.scale = self
                     default: break

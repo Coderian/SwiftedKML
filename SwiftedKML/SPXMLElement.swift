@@ -106,10 +106,10 @@ public class SPXMLElement : Hashable {
     // MARK: Hashable
     public var hashValue: Int { return unsafeAddressOf(self).hashValue }
     
-    public var parent:SPXMLElement? {
+    public var parent:SPXMLElement! {
         willSet {
             if newValue == nil {
-                self.parent?.childs.remove(self)
+                self.parent.childs.remove(self)
             }
         }
     }

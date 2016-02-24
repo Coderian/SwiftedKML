@@ -15,10 +15,10 @@ import Foundation
 ///     <element name="ImagePyramid" type="kml:ImagePyramidType" substitutionGroup="kml:AbstractObjectGroup"/>
 public class ImagePyramid :SPXMLElement, AbstractObjectGroup, HasXMLElementValue {
     public static var elementName:String = "ImagePyramid"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as PhotoOverlay: v.value.imagePyramid = self
                 default: break

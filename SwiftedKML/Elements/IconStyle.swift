@@ -15,11 +15,11 @@ import Foundation
 ///     <element name="IconStyle" type="kml:IconStyleType" substitutionGroup="kml:AbstractColorStyleGroup"/>
 public class IconStyle :SPXMLElement, AbstractColorStyleGroup, HasXMLElementValue {
     public static var elementName: String = "IconStyle"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as Style: v.value.iconStyle = self
                 default: break
@@ -62,11 +62,11 @@ public class IconStyleType: AbstractColorStyleType {
     /// Iconが複数あるのでStyleIconとしている
     public class Icon :SPXMLElement, HasXMLElementValue {
         public static var elementName:String = "Icon"
-        public override var parent:SPXMLElement? {
+        public override var parent:SPXMLElement! {
             didSet {
                 // 複数回呼ばれたて同じものがある場合は追加しない
-                if self.parent?.childs.contains(self) == false {
-                    self.parent?.childs.insert(self)
+                if self.parent.childs.contains(self) == false {
+                    self.parent.childs.insert(self)
                     switch parent {
                     case let v as IconStyle: v.value.icon = self
                     default:break

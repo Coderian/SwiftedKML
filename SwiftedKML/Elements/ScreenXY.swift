@@ -15,11 +15,11 @@ import Foundation
 ///     <element name="screenXY" type="kml:vec2Type"/>
 public class ScreenXY:SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "screenXY"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as ScreenOverlay: v.value.screenXY = self
                 default: break

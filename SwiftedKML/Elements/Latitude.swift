@@ -15,11 +15,11 @@ import Foundation
 ///     <element name="latitude" type="kml:angle90Type" default="0.0"/>
 public class Latitude:SPXMLElement,HasXMLElementValue,HasXMLElementSimpleValue {
     public static var elementName: String = "latitude"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as Camera:   v.value.latitude = self
                 case let v as Location: v.value.latitude = self

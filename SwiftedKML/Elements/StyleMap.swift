@@ -15,11 +15,11 @@ import Foundation
 ///     <element name="StyleMap" type="kml:StyleMapType" substitutionGroup="kml:AbstractStyleSelectorGroup"/>
 public class StyleMap :SPXMLElement, AbstractStyleSelectorGroup, HasXMLElementValue {
     public static var elementName: String = "StyleMap"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as Document:     v.value.abstractStyleSelectorGroup.append(self)
                 case let v as Folder:       v.value.abstractStyleSelectorGroup.append(self)

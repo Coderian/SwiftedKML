@@ -15,11 +15,11 @@ import Foundation
 ///     <element name="Location" type="kml:LocationType" substitutionGroup="kml:AbstractObjectGroup"/>
 public class Location :SPXMLElement, AbstractObjectGroup, HasXMLElementValue {
     public static var elementName:String = "Location"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as Model: v.value.location = self
                 default: break

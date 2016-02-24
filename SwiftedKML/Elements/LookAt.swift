@@ -15,11 +15,11 @@ import Foundation
 ///     <element name="LookAt" type="kml:LookAtType" substitutionGroup="kml:AbstractViewGroup"/>
 public class LookAt :SPXMLElement, AbstractViewGroup, HasXMLElementValue {
     public static var elementName: String = "LookAt"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as NetworkLinkControl:   v.value.abstractViewGroup = self
                 case let v as Document:             v.value.abstractViewGroup = self

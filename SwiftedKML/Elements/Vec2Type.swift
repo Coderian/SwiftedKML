@@ -20,7 +20,7 @@ import Foundation
 ///     </restriction>
 ///     </simpleType>
 public enum UnitsEnumType:String {
-    case FRACTION="fraction", PIXELS="pixels", INSERTPIXELS="insetPixels"
+    case Fraction="fraction", Pixels="pixels", IinsetPixels="insetPixels"
 }
 /// KML Vec2Type
 ///
@@ -45,12 +45,12 @@ public class Vec2Type {
     public var y: Y = Y() // = 1.0
     public struct XUnits:XMLAttributed {
         public static var attributeName: String = "xunits"
-        public var value : UnitsEnumType = .FRACTION
+        public var value : UnitsEnumType = .Fraction
     }
     public var xunits: XUnits = XUnits() // = .Fraction
     public struct YUnits:XMLAttributed {
         public static var attributeName: String = "yunits"
-        public var value : UnitsEnumType = .FRACTION
+        public var value : UnitsEnumType = .Fraction
     }
     public var yunits: YUnits = YUnits() // = .Fraction
     public init(){}

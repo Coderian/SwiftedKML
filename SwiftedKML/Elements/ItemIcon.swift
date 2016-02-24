@@ -15,10 +15,10 @@ import Foundation
 ///     <element name="ItemIcon" type="kml:ItemIconType" substitutionGroup="kml:AbstractObjectGroup"/>
 public class ItemIcon :SPXMLElement, AbstractObjectGroup, HasXMLElementValue {
     public static var elementName: String = "ItemIcon"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as ListStyle: v.value.itemIcon.append(self)
                 default: break

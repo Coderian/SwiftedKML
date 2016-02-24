@@ -15,11 +15,11 @@ import Foundation
 ///     <element name="Document" type="kml:DocumentType" substitutionGroup="kml:AbstractContainerGroup"/>
 public class Document : SPXMLElement, AbstractContainerGroup , HasXMLElementValue{
     public static var elementName : String = "Document"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as Kml:      v.value.abstractFeatureGroup = self
                 case let v as Folder:   v.value.abstractFeatureGroup.append(self)

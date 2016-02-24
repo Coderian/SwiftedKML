@@ -21,7 +21,7 @@ import Foundation
 ///     </restriction>
 ///     </simpleType>
 public enum ViewRefreshModeEnumType : String {
-    case NEVER="never", ONREQUEST="onRequest", ONSTOP="onStop", ONREGION="onRegion"
+    case Never="never", OnRequest="onRequest", OnStop="onStop", OnRegion="onRegion"
 }
 /// KML ViewRefreshMode
 ///
@@ -30,11 +30,11 @@ public enum ViewRefreshModeEnumType : String {
 ///     <element name="viewRefreshMode" type="kml:viewRefreshModeEnumType" default="never"/>
 public class ViewRefreshMode:SPXMLElement,HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "viewRefreshMode"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as Link: v.value.viewRefreshMode = self
                 default: break
@@ -42,7 +42,7 @@ public class ViewRefreshMode:SPXMLElement,HasXMLElementValue, HasXMLElementSimpl
             }
         }
     }
-    public var value: ViewRefreshModeEnumType = .NEVER
+    public var value: ViewRefreshModeEnumType = .Never
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = ViewRefreshModeEnumType(rawValue: contents.uppercaseString)!
         self.parent = parent

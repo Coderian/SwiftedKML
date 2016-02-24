@@ -15,11 +15,11 @@ import Foundation
 ///     <element name="leftFov" type="kml:angle180Type" default="0.0"/>
 public class LeftFov:SPXMLElement,HasXMLElementValue,HasXMLElementSimpleValue {
     public static var elementName: String = "leftFov"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as ViewVolume: v.value.leftFov = self
                 default: break

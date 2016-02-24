@@ -28,11 +28,11 @@ public enum GridOriginEnumType : String{
 ///     <element name="gridOrigin" type="kml:gridOriginEnumType" default="lowerLeft"/>
 public class GridOrigin:SPXMLElement,HasXMLElementValue,HasXMLElementSimpleValue {
     public static var elementName: String = "gridOrigin"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as ImagePyramid: v.value.gridOrigin = self
                 default: break
